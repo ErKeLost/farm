@@ -31,18 +31,18 @@ export const copyArtifacts = () => {
 };
 
 export async function runTask(taskName, task) {
-  const s = createSpinner(`${taskName}`).start();
+  const s = createSpinner(`Building ${taskName}`).start();
   try {
     await task();
-    s.success({ text: `${taskName} completed!` });
+    s.success({ text: `Build ${taskName} completed!` });
   } catch (e) {
-    s.error({ text: `${taskName} failed!` });
+    s.error({ text: `Build ${taskName} failed!` });
     console.error(e.toString());
   }
 }
 
 export async function runTaskQueue() {
-  await runTask('Build core', buildCore);
-  await runTask('Build plugins', buildPlugins);
-  await runTask('Copy Artifacts', copyArtifacts);
+  await runTask('core', buildCore);
+  await runTask('plugins', buildPlugins);
+  await runTask('artifacts', copyArtifacts);
 }
