@@ -59,12 +59,17 @@ impl ModuleGraph {
       .id_index_map
       .get(module_id)
       .unwrap_or_else(|| panic!("module_id {:?} should in the module graph", module_id));
+
+    // TODO may be is resolve problem important!!!!!!!!!!!!!!!!!!!
+    // println!("i: {:?}", i);
+    // println!("source module_id {:?} {:?}", source, module_id);
     let mut edges = self
       .g
       .neighbors_directed(*i, EdgeDirection::Outgoing)
       .detach();
-
+    // println!("edges: {:?}", edges.next(&self.g));
     while let Some((edge_index, node_index)) = edges.next(&self.g) {
+      println!("edges source: {:?}", self.g[edge_index].source);
       if self.g[edge_index].source == source {
         return self.g[node_index].id.clone();
       }

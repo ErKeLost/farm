@@ -82,6 +82,7 @@ impl SourceReplacer<'_> {
       } = &mut call_expr.args[0]
       {
         let source = value.to_string();
+        println!("这是 require 的 source: {}", source);
         let id = self
           .module_graph
           .get_dep_by_source(&self.module_id, &source);
@@ -126,6 +127,7 @@ impl SourceReplacer<'_> {
         })));
 
         let source = value.to_string();
+        println!("动态 import 的 source: {}", source);
         let id = self
           .module_graph
           .get_dep_by_source(&self.module_id, &source);
