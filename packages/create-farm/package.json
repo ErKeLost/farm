@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "rimraf dist && tsup --watch",
-    "build": "tsup",
+    "build": "farm build",
     "prepublishOnly": "npm run build"
   },
   "author": "",
@@ -26,6 +26,8 @@
     "url": "https://github.com/farm-fe"
   },
   "devDependencies": {
+    "@farmfe/cli": "workspace:*",
+    "@farmfe/core": "workspace:*",
     "@types/minimist": "^1.2.2",
     "@types/prompts": "^2.4.4",
     "chalk": "^5.2.0",
