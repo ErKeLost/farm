@@ -65,7 +65,6 @@ impl Compiler {
     let (thread_pool, err_sender, err_receiver) = Self::create_thread_pool();
 
     for (order, source) in self.context.config.input.values().enumerate() {
-      println!("order: {}, source: {}", order, source);
       Self::build_module_graph_threaded(
         thread_pool.clone(),
         PluginResolveHookParam {
@@ -322,9 +321,10 @@ impl Compiler {
     let mut module_graph = context.module_graph.write();
     // TODO check if the edge already exists
     if let Some(importer_id) = &resolve_param.importer {
-      println!("importer_id {:?}\n", importer_id);
+      println!("importer_id {:?}", importer_id);
       // println!("resolve_param.source {:?}\n", resolve_param.source);
-      println!("module_id {:?}\n", &module_id);
+      println!("module_id {:?}", &module_id);
+      println!("拿到的 source {:?}", resolve_param.source);
       module_graph.add_edge(
         importer_id,
         &module_id,
