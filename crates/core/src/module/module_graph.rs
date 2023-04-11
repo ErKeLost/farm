@@ -65,14 +65,14 @@ impl ModuleGraph {
       .neighbors_directed(*i, EdgeDirection::Outgoing)
       .detach();
     while let Some((edge_index, node_index)) = edges.next(&self.g) {
-      println!("self.g[node_index].id {:?}", self.g[node_index].id.relative_path);
+      println!(
+        "self.g[node_index].id {:?}",
+        self.g[node_index].id.relative_path
+      );
       println!("module_id {:?}", module_id.relative_path);
       if self.g[edge_index].source == source {
         println!("self.g[edge_index].source {:?}", self.g[edge_index]);
         println!("self.g[node_index].source {:?}", self.g[node_index].id);
-        return self.g[node_index].id.clone();
-      } else if self.g[node_index].id.relative_path == module_id.relative_path {
-        println!("source {:?}", source);
         return self.g[node_index].id.clone();
       }
     }
