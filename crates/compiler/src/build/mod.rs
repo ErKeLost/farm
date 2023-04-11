@@ -59,7 +59,6 @@ impl Compiler {
   #[tracing::instrument(skip(self))]
   pub(crate) fn build(&self) -> Result<()> {
     debug!("Start building");
-    println!("开始打包啦📦📦");
     self.context.plugin_driver.build_start(&self.context)?;
 
     let (thread_pool, err_sender, err_receiver) = Self::create_thread_pool();
