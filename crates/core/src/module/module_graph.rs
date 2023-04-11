@@ -59,17 +59,13 @@ impl ModuleGraph {
       .id_index_map
       .get(module_id)
       .unwrap_or_else(|| panic!("module_id {:?} should in the module graph", module_id));
-
-    // TODO may be is resolve problem important!!!!!!!!!!!!!!!!!!!
-    // println!("i: {:?}", i);
-    // println!("source module_id {:?} {:?}", source, module_id);
+    // println!("i {:?}", i);
     let mut edges = self
       .g
       .neighbors_directed(*i, EdgeDirection::Outgoing)
       .detach();
-    // println!("edges: {:?}", edges.next(&self.g));
     while let Some((edge_index, node_index)) = edges.next(&self.g) {
-      println!("edges source: {:?}", self.g[edge_index].source);
+      // println!("self.g[node_index].id {:?}", self.g[node_index].id);
       if self.g[edge_index].source == source {
         return self.g[node_index].id.clone();
       }
@@ -136,19 +132,23 @@ impl ModuleGraph {
     to: &ModuleId,
     edge_info: ModuleGraphEdge,
   ) -> Result<()> {
+    // println!("before from {:?}\n", from);
     let from = self.id_index_map.get(from).ok_or_else(|| {
       CompilationError::GenericError(format!(
         r#"from node "{}" does not exist in the module graph when add edge"#,
         from.relative_path()
       ))
     })?;
-
+    println!("after from {:?}", from);
+    // println!("before to {:?}\n", to);
     let to = self.id_index_map.get(to).ok_or_else(|| {
       CompilationError::GenericError(format!(
         r#"to node "{}" does not exist in the module graph when add edge"#,
         to.relative_path()
       ))
     })?;
+    println!("after to {:?}", to);
+    println!("edge_info {:?}", edge_info);
     // using update_edge instead of add_edge to avoid duplicated edges, see https://docs.rs/petgraph/latest/petgraph/graph/struct.Graph.html#method.update_edge
     self.g.update_edge(*from, *to, edge_info);
 

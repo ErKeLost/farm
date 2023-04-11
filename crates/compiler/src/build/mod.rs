@@ -59,12 +59,13 @@ impl Compiler {
   #[tracing::instrument(skip(self))]
   pub(crate) fn build(&self) -> Result<()> {
     debug!("Start building");
-
+    println!("开始打包啦📦📦");
     self.context.plugin_driver.build_start(&self.context)?;
 
     let (thread_pool, err_sender, err_receiver) = Self::create_thread_pool();
 
     for (order, source) in self.context.config.input.values().enumerate() {
+      println!("order: {}, source: {}", order, source);
       Self::build_module_graph_threaded(
         thread_pool.clone(),
         PluginResolveHookParam {
@@ -244,7 +245,6 @@ impl Compiler {
           return;
         }
       };
-
       match resolve_module_result {
         ResolveModuleResult::Built(module_id) => {
           // add edge to the graph
@@ -320,12 +320,15 @@ impl Compiler {
     );
 
     let mut module_graph = context.module_graph.write();
-
     // TODO check if the edge already exists
     if let Some(importer_id) = &resolve_param.importer {
+      println!("importer_id {:?}\n", importer_id);
+      // println!("resolve_param.source {:?}\n", resolve_param.source);
+      println!("module_id {:?}\n", &module_id);
       module_graph.add_edge(
         importer_id,
         &module_id,
+        // TODO 拿 source 改成数组去对比
         ModuleGraphEdge {
           source: resolve_param.source.clone(),
           kind: resolve_param.kind.clone(),

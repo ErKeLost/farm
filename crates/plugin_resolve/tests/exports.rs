@@ -13,7 +13,6 @@ fn resolve_exports_basic() {
       let resolved = resolver.resolve("basic", cwd.clone(), &ResolveKind::Import);
       assert!(resolved.is_some());
       let resolved = resolved.unwrap();
-      println!("resolved resolved_path: {:?}", resolved.resolved_path);
       assert_eq!(
         resolved.resolved_path,
         cwd

@@ -50,7 +50,6 @@ impl Resolver {
       },
     );
     // check if module is external
-    println!("base_dir: {:?}", base_dir);
     if let Ok(package_json_info) = &package_json_info {
       if !self.is_source_absolute(source)
         && !self.is_source_relative(source)
@@ -63,9 +62,7 @@ impl Resolver {
           ..Default::default()
         });
       }
-      println!("source : {}", source);
       if !self.is_source_absolute(source) && !self.is_source_relative(source) {
-        println!("resolve 就是相对路径和绝对路径 {:?}", source);
         // check browser replace
         if let Some(resolved_path) = self.try_browser_replace(package_json_info, source) {
           let external = self.is_module_external(package_json_info, &resolved_path);
@@ -82,7 +79,6 @@ impl Resolver {
         if let Some(resolved_path) = self.try_imports_replace(package_json_info, source) {
           let external = self.is_module_external(package_json_info, &resolved_path);
           let side_effects = self.is_module_side_effects(package_json_info, &resolved_path);
-          println!("imports replace: {} -> {}", source, resolved_path);
           return Some(PluginResolveHookResult {
             resolved_path,
             external,
