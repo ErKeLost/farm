@@ -65,6 +65,7 @@ impl ModuleGraph {
       .detach();
     while let Some((edge_index, node_index)) = edges.next(&self.g) {
       if self.g[edge_index].source == source {
+        println!("g[node_index] {:?}", self.g[node_index].id);
         return self.g[node_index].id.clone();
       }
     }

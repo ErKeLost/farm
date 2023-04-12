@@ -82,6 +82,8 @@ impl SourceReplacer<'_> {
       } = &mut call_expr.args[0]
       {
         let source = value.to_string();
+        println!("source: {}", source);
+        println!("module_id: {:?}", self.module_id);
         let id = self
           .module_graph
           .get_dep_by_source(&self.module_id, &source);
