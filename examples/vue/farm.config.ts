@@ -15,4 +15,7 @@ export default defineFarmConfig({
     },
   },
   plugins: [farmJsPluginVue()],
+  server: {
+    hmr: true,
+  },
 });

@@ -45,12 +45,12 @@ export class DevServer {
 
     // this._app.use(serve(this._dist));
     this._app.use(resources(this._compiler));
-
     if (this.config.hmr) {
       this.ws = new WebSocketServer({
         port: this.config.hmr.port,
         host: this.config.hmr.host,
       });
+
       this._app.use(hmr(this));
       this.hmrEngine = new HmrEngine(this._compiler, this, this.logger);
     }
@@ -74,8 +74,7 @@ export class DevServer {
     }
 
     const end = Date.now();
-
-    this._app.listen(this.config.port);
+    await httpServerStart(this);
     const version = JSON.parse(
       readFileSync(
         join(fileURLToPath(import.meta.url), '../../../package.json'),
@@ -106,4 +105,25 @@ Version ${chalk.green.bold(version)}
       false
     );
   }
+}
+
+export async function httpServerStart(self: any) {
+  return new Promise((resolve) => {
+    const onError = (e: Error & { code?: string }) => {
+      // TODO strickPort side effect
+      if (e.code === 'EADDRINUSE') {
+        self.logger.info(
+          `Port ${self.config.port} is in use, trying another one...`
+        );
+        self._app.listen(++self.config.port, () => {
+          resolve(self.config.port);
+        });
+      }
+    };
+    self._app
+      .listen(self.config.port, () => {
+        resolve(self.config.port);
+      })
+      .on('error', onError);
+  });
 }
