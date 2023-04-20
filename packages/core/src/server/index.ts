@@ -3,6 +3,7 @@ import { readFileSync } from 'fs';
 import Koa from 'koa';
 // import serve from 'koa-static';
 import { WebSocketServer } from 'ws';
+import net from 'node:net';
 import chalk from 'chalk';
 import boxen from 'boxen';
 import figlet from 'figlet';
@@ -46,13 +47,30 @@ export class DevServer {
     // this._app.use(serve(this._dist));
     this._app.use(resources(this._compiler));
     if (this.config.hmr) {
-      this.ws = new WebSocketServer({
-        port: this.config.hmr.port,
-        host: this.config.hmr.host,
-      });
+      isPortTaken(this.config.hmr.port)
+        .then((result) => {
+          let socketServer = {};
+          if (result) {
+            socketServer = {
+              port: ++this.config.hmr.port,
+              host: this.config.hmr.host,
+            };
+          } else {
+            socketServer = {
+              port: this.config.hmr.port,
+              host: this.config.hmr.host,
+            };
+          }
+          console.log(socketServer);
 
-      this._app.use(hmr(this));
-      this.hmrEngine = new HmrEngine(this._compiler, this, this.logger);
+          this.ws = new WebSocketServer(socketServer);
+          this._app.use(hmr(this));
+          this.hmrEngine = new HmrEngine(this._compiler, this, this.logger);
+          console.log(this.config.hmr.port);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
 
     if (this._compiler.config.config.lazyCompilation) {
@@ -125,5 +143,27 @@ export async function httpServerStart(self: any) {
         resolve(self.config.port);
       })
       .on('error', onError);
+  });
+}
+
+export async function isPortTaken(port: number) {
+  return new Promise((resolve, reject) => {
+    const server = net.createServer();
+    console.log(port);
+
+    // server.once('listening', () => {
+    //   server.close();
+    //   console.log(`Port ${port} is available`);
+    //   resolve(false);
+    // });
+    server.once('error', (err: Error & { code: string }) => {
+      if (err.code === 'EADDRINUSE') {
+        console.log('端口被占用');
+        resolve(true);
+      } else {
+        reject(err);
+      }
+    });
+    server.listen(port);
   });
 }
