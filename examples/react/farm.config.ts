@@ -19,5 +19,5 @@ export default <UserConfig>{
   server: {
     hmr: true
   },
-  plugins: ['@farmfe/plugin-react', '@farmfe/plugin-sass']
+  plugins: ['@farmfe/plugin-react']
 };

@@ -16,7 +16,9 @@ export default <FarmRuntimePlugin>{
 
     function connect() {
       // setup websocket connection
-      const socket = new WebSocket(`ws://${host}:${9802}`);
+      console.log(WebSocket);
+
+      const socket = new WebSocket(`ws://${host}:${9000}`);
 
       // listen for the message from the server
       // when the user save the file, the server will recompile the file(and its dependencies as long as its dependencies are changed)
