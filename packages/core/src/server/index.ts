@@ -20,6 +20,7 @@ import { join } from 'path';
 import { fileURLToPath } from 'url';
 import { lazyCompilation } from './middlewares/lazy-compilation.js';
 import { resources } from './middlewares/resources.js';
+import { proxyMiddleware } from './middlewares/proxy.js';
 
 /**
  * Farm Dev Server, responsible for:
@@ -40,9 +41,12 @@ export class DevServer {
     public logger: Logger,
     options?: UserServerConfig
   ) {
+    console.log(options);
+
     this.config = normalizeDevServerOptions(options);
     this._app = new Koa();
-
+    console.log('开始');
+    this._app.use(proxyMiddleware(this.config));
     // this._app.use(serve(this._dist));
     this._app.use(resources(this._compiler));
 

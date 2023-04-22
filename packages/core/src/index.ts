@@ -28,6 +28,7 @@ export async function start(options: {
     'development'
   );
   const compiler = new Compiler(normalizedConfig);
+
   const devServer = new DevServer(compiler, logger, userConfig.server);
 
   await devServer.listen();

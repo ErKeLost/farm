@@ -15,4 +15,9 @@ export default defineFarmConfig({
     },
   },
   plugins: [farmJsPluginVue()],
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
+  },
 });
