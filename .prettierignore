@@ -1,3 +1,9 @@
 dist/
 build/
 examples/*
+target/**/*
+crates/**/*
+js-plugins/
+rust-plugins/
+pnpm-lock.yaml
+pnpm-workspace.yaml
