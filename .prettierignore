@@ -7,3 +7,6 @@ js-plugins/
 rust-plugins/
 pnpm-lock.yaml
 pnpm-workspace.yaml
+*.md
+*.json
+.yaml
