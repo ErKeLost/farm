@@ -11,7 +11,7 @@ import { Compiler } from '../compiler/index.js';
 import {
   UserServerConfig,
   NormalizedServerConfig,
-  normalizeDevServerOptions,
+  normalizeDevServerOptions
 } from '../config/index.js';
 import { hmr } from './middlewares/hmr.js';
 import { HmrEngine } from './hmr-engine.js';
@@ -46,15 +46,6 @@ export class DevServer {
     // this._app.use(serve(this._dist));
     this._app.use(resources(this._compiler));
 
-    if (this.config.hmr) {
-      this.ws = new WebSocketServer({
-        port: this.config.hmr.port,
-        host: this.config.hmr.host,
-      });
-      this._app.use(hmr(this));
-      this.hmrEngine = new HmrEngine(this._compiler, this, this.logger);
-    }
-
     if (this._compiler.config.config.lazyCompilation) {
       this._app.use(lazyCompilation(this));
     }
@@ -75,7 +66,47 @@ export class DevServer {
 
     const end = Date.now();
 
-    this._app.listen(this.config.port);
+    // listen koa server
+    await this.serverStart();
+
+    // print server info
+    this.startServerInfo(start, end);
+  }
+
+  serverStart() {
+    return new Promise<void>((resolve, reject) => {
+      const httpServer = this._app.listen(this.config.port, () => {
+        this.startWsServer();
+        resolve();
+      });
+      httpServer.on('error', (err: Error & { code?: string }) => {
+        if (err.code === 'EADDRINUSE') {
+          this.logger.info(
+            `Port ${this.config.port} is already in use, trying another one...`
+          );
+          this.config.port++;
+          this.config.hmr.port++;
+          this._app.listen(this.config.port);
+          this.startWsServer();
+          resolve();
+          // TODO StrickPort reject error
+        } else {
+          reject(err);
+        }
+      });
+    });
+  }
+  startWsServer() {
+    if (this.config.hmr) {
+      this.ws = new WebSocketServer({
+        port: this.config.hmr.port,
+        host: this.config.hmr.host
+      });
+      this._app.use(hmr(this));
+      this.hmrEngine = new HmrEngine(this._compiler, this, this.logger);
+    }
+  }
+  startServerInfo(start: number, end: number): void {
     const version = JSON.parse(
       readFileSync(
         join(fileURLToPath(import.meta.url), '../../../package.json'),
@@ -86,7 +117,7 @@ export class DevServer {
       boxen(
         `${brandColor(
           figlet.textSync('FARM', {
-            width: 40,
+            width: 40
           })
         )}
 Version ${chalk.green.bold(version)}
@@ -100,7 +131,7 @@ Version ${chalk.green.bold(version)}
           margin: 1,
           align: 'center',
           borderColor: 'cyan',
-          borderStyle: 'round',
+          borderStyle: 'round'
         }
       ),
       false
