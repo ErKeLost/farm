@@ -90,6 +90,9 @@ export class DevServer {
           this.startWsServer();
           resolve();
           // TODO StrickPort reject error
+          // if (this.config.strictPort) {
+          //   reject(err);
+          // }
         } else {
           reject(err);
         }
