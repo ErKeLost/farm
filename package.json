@@ -36,6 +36,7 @@
     "test": "vitest run",
     "start": "cd packages/cli && pnpm run start",
     "build": "cd packages/cli && pnpm run build -b",
+    "clean": "rimraf node_modules **/*/node_modules",
     "release": "node scripts/release.mjs",
     "bump": "node scripts/bump.mjs"
   },
