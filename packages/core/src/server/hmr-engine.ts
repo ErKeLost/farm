@@ -12,6 +12,7 @@ import { DevServer } from './index.js';
 import { Logger } from '../utils/logger.js';
 import { JsUpdateResult } from '../../binding/binding.js';
 import type { Resource } from '@farmfe/runtime/src/resource-loader.js';
+import { clearScreen } from '../utils/common.js';
 
 export class HmrEngine {
   private _updateQueue: string[] = [];
@@ -70,6 +71,7 @@ export class HmrEngine {
 
     const start = Date.now();
     const result = await this._compiler.update(queue);
+    clearScreen();
     this._logger.info(
       `${chalk.cyan(updatedFilesStr)} updated in ${chalk.green.bold(
         `${Date.now() - start}ms`

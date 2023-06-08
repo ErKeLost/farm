@@ -12,7 +12,7 @@ import './main.css';
 const { Header, Content, Sider } = Layout;
 
 const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
-  key,
+  key
   label: `nav ${key}`,
 }));
 
