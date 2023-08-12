@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "outDir": "dist"
+  },
+  "include": ["src/**/*", "farm.config.mjs"],
+  "exclude": ["node_modules"]
+}
