@@ -19,8 +19,12 @@ impl FarmPluginJson {
   }
 }
 
+const SUPPORTED_EXTENSIONS: [&str; 2] = [".json", ".jsonc"];
+
 fn match_json_file(file_name: &str) -> bool {
-  file_name.ends_with(".json")
+  SUPPORTED_EXTENSIONS
+    .iter()
+    .any(|&ext| file_name.ends_with(ext))
 }
 
 impl Plugin for FarmPluginJson {
