@@ -710,11 +710,25 @@ impl Resolver {
   ) -> Option<String> {
     farm_profile_function!("try_imports_replace".to_string());
     if resolved_path.starts_with('#') {
+      if resolved_path.contains("#ansi") {
+        println!("resolved_path: {}", resolved_path);
+      };
       let imports_field = self.get_field_value_from_package_json_info(package_json_info, "imports");
       if let Some(Value::Object(imports_field_map)) = imports_field {
+        if resolved_path.contains("#ansi") {
+          println!("imports_field: {:?}", imports_field_map.clone());
+        };
         for (key, value) in imports_field_map {
           if self.are_paths_equal(&key, resolved_path) {
             if let Value::String(str) = &value {
+              if resolved_path.contains("#ansi") {
+                println!("str: {}", str);
+                println!("package_json_info: {:?}", package_json_info.dir());
+                println!(
+                  "result: {:?}",
+                  self.get_string_value_path(str, package_json_info)
+                );
+              };
               return self.get_string_value_path(str, package_json_info);
             }
 

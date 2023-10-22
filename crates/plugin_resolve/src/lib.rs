@@ -63,6 +63,11 @@ impl Plugin for FarmPluginResolve {
       Path::new(&self.root).to_path_buf()
     };
 
+    if source.contains("#ansi") {
+      println!("source: {}", source);
+      println!("basedir: {:?}", basedir);
+    };
+
     // Entry module and internal modules should not be external
     if !matches!(param.kind, ResolveKind::Entry(_))
       && [
