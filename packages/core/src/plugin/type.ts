@@ -56,6 +56,13 @@ export interface JsPlugin {
 
   config?: Callback<Config['config'], Config['config']>;
 
+  // config?: (
+  //   config: Config["config"],
+  //   configEnv: ConfigEnv,
+  // ) => Promise<Config["config"]>;
+
+  // configResolved?: (config: Config["config"]) => void;
+
   /**
    * runs in development mode only
    * @param server

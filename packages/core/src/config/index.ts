@@ -12,7 +12,6 @@ import { DevServer } from '../server/index.js';
 import { parseUserConfig } from './schema.js';
 import { CompilationMode, loadEnv, setProcessEnv } from './env.js';
 import { __FARM_GLOBAL__ } from './_global.js';
-// import { importFresh } from '../utils/share.js';
 import {
   bold,
   clearScreen,
@@ -41,6 +40,11 @@ export const DEFAULT_CONFIG_NAMES = [
   'farm.config.mjs'
 ];
 export const urlRegex = /^(https?:)?\/\/([^/]+)/;
+
+export interface ConfigEnv {
+  command: 'build' | 'serve';
+  mode: string;
+}
 
 /**
  * Normalize user config and transform it to rust compiler compatible config
@@ -351,9 +355,10 @@ export function normalizeDevServerOptions(
  * Resolve and load user config from the specified path
  * @param configPath
  */
-export async function resolveUserConfig(
+export async function resolveConfig(
   inlineOptions: FarmCLIOptions,
   command: 'serve' | 'build',
+  mode: CompilationMode,
   logger: Logger
 ): Promise<ResolvedUserConfig> {
   let userConfig: ResolvedUserConfig = {};
@@ -365,6 +370,13 @@ export async function resolveUserConfig(
   ) {
     clearScreen();
   }
+
+  const configEnv: ConfigEnv = {
+    command,
+    mode
+  };
+
+  console.log(configEnv);
 
   if (!configPath) {
     return mergeUserConfig(userConfig, inlineOptions);

@@ -17,7 +17,7 @@ import {
   DEFAULT_HMR_OPTIONS,
   JsPlugin,
   normalizeUserCompilationConfig,
-  resolveUserConfig
+  resolveConfig
 } from '../index.js';
 import { setProcessEnv } from '../config/env.js';
 import { __FARM_GLOBAL__ } from '../config/_global.js';
@@ -78,9 +78,10 @@ export class FileWatcher implements ImplFileWatcher {
           await this.serverOrCompiler.close();
         }
 
-        const config: UserConfig = await resolveUserConfig(
+        const config: UserConfig = await resolveConfig(
           this.options.inlineConfig,
           'serve',
+          'development',
           this._logger
         );
         const normalizedConfig = await normalizeUserCompilationConfig(
