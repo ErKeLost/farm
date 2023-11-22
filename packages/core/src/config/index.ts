@@ -6,7 +6,7 @@ import { pathToFileURL } from 'node:url';
 
 import merge from 'lodash.merge';
 
-import { resolveAllPlugins } from '../plugin/index.js';
+// import { resolveAllPlugins } from "../plugin/index.js";
 import { bindingPath, Config } from '../../binding/index.js';
 import { DevServer } from '../server/index.js';
 import { parseUserConfig } from './schema.js';
@@ -32,6 +32,7 @@ import type {
   UserServerConfig
 } from './types.js';
 import { normalizePersistentCache } from './normalize-config/normalize-persistent-cache.js';
+import { resolveAllPlugins, resolvePlugins } from '../plugin/index.js';
 
 export * from './types.js';
 export const DEFAULT_CONFIG_NAMES = [
@@ -55,7 +56,9 @@ export async function normalizeUserCompilationConfig(
   inlineConfig: (FarmCLIOptions & UserConfig) | null,
   userConfig: ResolvedUserConfig,
   logger: Logger,
-  mode: CompilationMode = 'development'
+  isRunConfigResolvedHook = false,
+  mode: CompilationMode = 'development',
+  plugins?: any
 ): Promise<Config> {
   const { compilation, root, server, envDir, envPrefix } = userConfig;
   // resolve root path
@@ -294,16 +297,17 @@ export async function normalizeUserCompilationConfig(
       config.presetEnv = false;
     }
   }
-
-  const { jsPlugins, rustPlugins, finalConfig } = await resolveAllPlugins(
-    config,
-    userConfig
-  );
+  // TODO
+  // await resolveAllPlugins(
+  //   config,
+  //   userConfig,
+  // );
+  console.log(isRunConfigResolvedHook);
 
   const normalizedConfig: Config = {
-    config: finalConfig,
-    rustPlugins,
-    jsPlugins
+    config,
+    rustPlugins: plugins?.rustPlugins ?? [],
+    jsPlugins: plugins?.jsPlugins ?? []
   };
 
   return normalizedConfig;
@@ -356,18 +360,15 @@ export function normalizeDevServerOptions(
  * @param configPath
  */
 export async function resolveConfig(
-  inlineOptions: FarmCLIOptions,
+  inlineConfig: FarmCLIOptions,
   command: 'serve' | 'build',
   mode: CompilationMode,
   logger: Logger
-): Promise<ResolvedUserConfig> {
+): Promise<any> {
   let userConfig: ResolvedUserConfig = {};
   const root: string = process.cwd();
-  const { configPath } = inlineOptions;
-  if (
-    inlineOptions.clearScreen &&
-    __FARM_GLOBAL__.__FARM_RESTART_DEV_SERVER__
-  ) {
+  const { configPath } = inlineConfig;
+  if (inlineConfig.clearScreen && __FARM_GLOBAL__.__FARM_RESTART_DEV_SERVER__) {
     clearScreen();
   }
 
@@ -379,7 +380,7 @@ export async function resolveConfig(
   console.log(configEnv);
 
   if (!configPath) {
-    return mergeUserConfig(userConfig, inlineOptions);
+    return mergeUserConfig(userConfig, inlineConfig);
   }
 
   if (!path.isAbsolute(configPath)) {
@@ -391,7 +392,7 @@ export async function resolveConfig(
     for (const name of DEFAULT_CONFIG_NAMES) {
       const resolvedPath = path.join(configPath, name);
       const config = await readConfigFile(resolvedPath, logger);
-      const farmConfig = mergeUserConfig(config, inlineOptions);
+      const farmConfig = mergeUserConfig(config, inlineConfig);
       if (config) {
         userConfig = parseUserConfig(farmConfig);
         userConfig.resolveConfigPath = resolvedPath;
@@ -401,7 +402,7 @@ export async function resolveConfig(
     }
   } else if (fs.statSync(configPath).isFile()) {
     const config = await readConfigFile(configPath, logger);
-    const farmConfig = mergeUserConfig(config, inlineOptions);
+    const farmConfig = mergeUserConfig(config, inlineConfig);
 
     if (config) {
       userConfig = parseUserConfig(farmConfig);
@@ -423,8 +424,24 @@ export async function resolveConfig(
 
   targetWeb && (await DevServer.resolvePortConflict(userConfig, logger));
   // Save variables are used when restarting the service
-  const config = filterUserConfig(userConfig, inlineOptions);
-  return config;
+  const config = filterUserConfig(userConfig, inlineConfig);
+
+  const { rawJsPlugins, rustPlugins } = await resolvePlugins({}, config);
+
+  console.log(config);
+
+  const normalizedConfig = await normalizeUserCompilationConfig(
+    inlineConfig,
+    config,
+    logger,
+    true,
+    'development',
+    {
+      jsPlugins: rawJsPlugins,
+      rustPlugins
+    }
+  );
+  return { config, normalizedConfig };
 }
 
 async function readConfigFile(
