@@ -68,7 +68,11 @@ export async function resolveAllPlugins(
 
   // call user config hooks
   for (const jsPlugin of jsPlugins) {
-    finalConfig = (await jsPlugin.config?.(finalConfig)) ?? finalConfig;
+    finalConfig =
+      (await jsPlugin.config?.(finalConfig, {
+        mode: 'development',
+        command: 'serve'
+      })) ?? finalConfig;
   }
 
   return {
@@ -78,15 +82,17 @@ export async function resolveAllPlugins(
   };
 }
 
-export async function resolvePlugins(userConfig: UserConfig) {
+export async function resolvePlugins(
+  resolvedConfig: any,
+  userConfig: UserConfig
+): Promise<any> {
   const plugins = userConfig.plugins ?? [];
   const vitePlugins = (userConfig.vitePlugins ?? []).filter(Boolean);
 
   if (!plugins.length && !vitePlugins?.length) {
     return {
       rustPlugins: [],
-      jsPlugins: [],
-      finalConfig
+      rawJsPlugins: []
     };
   }
 
@@ -95,8 +101,9 @@ export async function resolvePlugins(userConfig: UserConfig) {
   const vitePluginAdapters: JsPlugin[] = handleVitePlugins(
     vitePlugins,
     userConfig,
-    finalConfig
+    resolvedConfig
   );
+
   const jsPlugins: JsPlugin[] = [];
 
   for (const plugin of plugins) {
@@ -105,7 +112,7 @@ export async function resolvePlugins(userConfig: UserConfig) {
       (isArray(plugin) && typeof plugin[0] === 'string')
     ) {
       rustPlugins.push(
-        await rustPluginResolver(plugin as string, finalConfig.root)
+        await rustPluginResolver(plugin as string, userConfig?.root)
       );
     } else if (isObject(plugin)) {
       convertPlugin(plugin as unknown as JsPlugin);
@@ -124,16 +131,41 @@ export async function resolvePlugins(userConfig: UserConfig) {
   // vite plugins execute after farm plugins by default.
   jsPlugins.push(...vitePluginAdapters);
 
+  const filterPlugins = filterPluginByName(jsPlugins);
+
+  const sortJsPlugins = getSortedPlugins(filterPlugins);
+
+  const rawJsPlugins = (await resolveAsyncPlugins(
+    sortJsPlugins || []
+  )) as JsPlugin[];
+
   // call user config hooks
-  for (const jsPlugin of jsPlugins) {
-    finalConfig = (await jsPlugin.config?.(finalConfig)) ?? finalConfig;
-  }
+  // for (const jsPlugin of jsPlugins) {
+  //   resolvedConfig = (await jsPlugin.config?.(resolvedConfig)) ??
+  //     resolvedConfig;
+  // }
 
   return {
     rustPlugins,
-    jsPlugins,
-    finalConfig
+    rawJsPlugins,
+    resolvedConfig
   };
+}
+
+export async function resolveAsyncPlugins<T>(arr: T[]): Promise<T[]> {
+  return arr.reduce<Promise<T[]>>(async (acc, current) => {
+    const flattenedAcc = await acc;
+
+    if (current instanceof Promise) {
+      const resolvedElement = await current;
+      return flattenedAcc.concat(resolvedElement);
+    } else if (Array.isArray(current)) {
+      const flattenedArray = await resolveAsyncPlugins(current);
+      return flattenedAcc.concat(flattenedArray);
+    } else {
+      return flattenedAcc.concat(current);
+    }
+  }, Promise.resolve([]));
 }
 
 export function filterPluginByName(plugins: JsPlugin[]) {
