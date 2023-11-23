@@ -32,7 +32,8 @@ import type {
   UserServerConfig
 } from './types.js';
 import { normalizePersistentCache } from './normalize-config/normalize-persistent-cache.js';
-import { resolveAllPlugins, resolvePlugins } from '../plugin/index.js';
+// import { resolveAllPlugins, resolvePlugins } from "../plugin/index.js";
+import { resolveAllPlugins } from '../plugin/index.js';
 
 export * from './types.js';
 export const DEFAULT_CONFIG_NAMES = [
@@ -60,6 +61,8 @@ export async function normalizeUserCompilationConfig(
   mode: CompilationMode = 'development',
   plugins?: any
 ): Promise<Config> {
+  console.log(plugins);
+
   const { compilation, root, server, envDir, envPrefix } = userConfig;
   // resolve root path
   const resolvedRootPath = normalizePath(
@@ -298,16 +301,16 @@ export async function normalizeUserCompilationConfig(
     }
   }
   // TODO
-  // await resolveAllPlugins(
-  //   config,
-  //   userConfig,
-  // );
+  const { finalConfig, rustPlugins, jsPlugins } = await resolveAllPlugins(
+    config,
+    userConfig
+  );
   console.log(isRunConfigResolvedHook);
 
   const normalizedConfig: Config = {
-    config,
-    rustPlugins: plugins?.rustPlugins ?? [],
-    jsPlugins: plugins?.jsPlugins ?? []
+    config: finalConfig,
+    rustPlugins: rustPlugins ?? rustPlugins,
+    jsPlugins: jsPlugins ?? jsPlugins
   };
 
   return normalizedConfig;
@@ -426,9 +429,7 @@ export async function resolveConfig(
   // Save variables are used when restarting the service
   const config = filterUserConfig(userConfig, inlineConfig);
 
-  const { rawJsPlugins, rustPlugins } = await resolvePlugins({}, config);
-
-  console.log(config);
+  // const { rawJsPlugins, rustPlugins } = await resolvePlugins({}, config);
 
   const normalizedConfig = await normalizeUserCompilationConfig(
     inlineConfig,
@@ -437,8 +438,8 @@ export async function resolveConfig(
     true,
     'development',
     {
-      jsPlugins: rawJsPlugins,
-      rustPlugins
+      jsPlugins: [],
+      rustPlugins: []
     }
   );
   return { config, normalizedConfig };
