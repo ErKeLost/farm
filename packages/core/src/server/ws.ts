@@ -1,7 +1,3 @@
-import type { IncomingMessage } from 'node:http';
-import type { Duplex } from 'node:stream';
-import type { WebSocket as WebSocketRawType } from 'ws';
-
 import { WebSocketServer as WebSocketServerRaw } from 'ws';
 import {
   DefaultLogger,
@@ -9,7 +5,11 @@ import {
   NormalizedServerConfig,
   red
 } from '../index.js';
-import { Server } from './type.js';
+
+import type { IncomingMessage } from 'node:http';
+import type { Duplex } from 'node:stream';
+import type { WebSocket as WebSocketRawType } from 'ws';
+import type { Server } from './type.js';
 
 const HMR_HEADER = 'farm_hmr';
 
@@ -58,12 +58,15 @@ export default class WsServer implements IWebSocketServer {
 
   private createWebSocketServer() {
     try {
-      this.wss = new WebSocketServerRaw({ noServer: true });
-      // TODO IF not have httpServer
-      this.httpServer.on('upgrade', this.upgradeWsServer.bind(this));
+      this.createWsServer();
     } catch (err) {
       this.handleSocketError(err);
     }
+  }
+  private createWsServer() {
+    this.wss = new WebSocketServerRaw({ noServer: true });
+    // TODO IF not have httpServer
+    this.httpServer.on('upgrade', this.upgradeWsServer.bind(this));
   }
 
   private upgradeWsServer(
