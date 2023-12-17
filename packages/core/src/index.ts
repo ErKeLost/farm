@@ -6,11 +6,11 @@ export * from './utils/index.js';
 
 import path from 'node:path';
 import fs from 'node:fs/promises';
-import os from 'node:os';
+// import os from 'node:os';
 import { existsSync, statSync } from 'node:fs';
-import sirv from 'sirv';
-import compression from 'koa-compress';
-import Koa, { Context } from 'koa';
+// import sirv from 'sirv';
+// import compression from 'koa-compress';
+// import Koa, { Context } from 'koa';
 import fse from 'fs-extra';
 
 import { Compiler } from './compiler/index.js';
@@ -26,8 +26,8 @@ import { FileWatcher } from './watcher/index.js';
 import { Config } from '../binding/index.js';
 import { compilerHandler } from './utils/build.js';
 import { setProcessEnv } from './config/env.js';
-import { bold, cyan, green, magenta } from './utils/color.js';
-import { useProxy } from './server/middlewares/index.js';
+import { bold, green } from './utils/color.js';
+// import { useProxy } from './server/middlewares/index.js';
 
 import type { FarmCLIOptions } from './config/types.js';
 import { JsPlugin } from './plugin/type.js';
@@ -50,7 +50,7 @@ export async function start(
 
   const compiler = new Compiler(normalizedConfig);
   const devServer = new DevServer(compiler, logger, config, normalizedConfig);
-  devServer.createFarmServer(devServer.userConfig.server);
+  devServer.createServer(devServer.userConfig.server);
 
   if (normalizedConfig.config.mode === 'development') {
     normalizedConfig.jsPlugins.forEach((plugin: JsPlugin) =>
@@ -128,16 +128,11 @@ export async function build(
 
 export async function preview(inlineConfig: FarmCLIOptions): Promise<void> {
   const logger = inlineConfig.logger ?? new DefaultLogger();
-  const port = inlineConfig.port ?? 1911;
+  // const port = inlineConfig.port ?? 1911;
   const { config, normalizedConfig } = await resolveConfig(
     inlineConfig,
     logger,
     'serve',
-    'production'
-  );
-
-  const normalizedDevServerConfig = normalizeDevServerOptions(
-    config.server,
     'production'
   );
 
@@ -153,60 +148,70 @@ export async function preview(inlineConfig: FarmCLIOptions): Promise<void> {
     }
   }
 
-  function StaticFilesHandler(ctx: Context) {
-    const staticFilesServer = sirv(distDir, {
-      etag: true,
-      single: true
-    });
-    return new Promise<void>((resolve) => {
-      staticFilesServer(ctx.req, ctx.res, () => {
-        resolve();
-      });
-    });
-  }
-  const app = new Koa();
+  const devServer = new DevServer(null, logger, config, normalizedConfig);
+  devServer.createPreviewServer(devServer.userConfig.server);
 
-  // support proxy
-  useProxy(normalizedDevServerConfig.proxy, app, logger);
+  const normalizedDevServerConfig = normalizeDevServerOptions(
+    config.server,
+    'production'
+  );
 
-  app.use(compression());
-  app.use(async (ctx) => {
-    const requestPath = ctx.request.path;
+  devServer.startServer(normalizedDevServerConfig);
 
-    if (requestPath.startsWith(output.publicPath)) {
-      const modifiedPath = requestPath.substring(output.publicPath.length);
+  // function StaticFilesHandler(ctx: Context) {
+  //   const staticFilesServer = sirv(distDir, {
+  //     etag: true,
+  //     single: true
+  //   });
+  //   return new Promise<void>((resolve) => {
+  //     staticFilesServer(ctx.req, ctx.res, () => {
+  //       resolve();
+  //     });
+  //   });
+  // }
+  // const app = new Koa();
 
-      if (modifiedPath.startsWith('/')) {
-        ctx.request.path = modifiedPath;
-      } else {
-        ctx.request.path = `/${modifiedPath}`;
-      }
-    }
-    await StaticFilesHandler(ctx);
-  });
+  // // support proxy
+  // useProxy(normalizedDevServerConfig.proxy, app, logger);
 
-  app.listen(port, () => {
-    logger.info(green(`preview server running at:\n`));
-    const interfaces = os.networkInterfaces();
-    Object.keys(interfaces).forEach((key) =>
-      (interfaces[key] || [])
-        .filter((details) => details.family === 'IPv4')
-        .map((detail) => {
-          return {
-            type: detail.address.includes('127.0.0.1')
-              ? 'Local:   '
-              : 'Network: ',
-            host: detail.address
-          };
-        })
-        .forEach(({ type, host }) => {
-          const url = `${'http'}://${host}:${bold(port)}${
-            output.publicPath ?? ''
-          }`;
-          logger.info(`${magenta('>')} ${type} ${cyan(url)}`);
-        })
-    );
-  });
+  // app.use(compression());
+  // app.use(async (ctx) => {
+  //   const requestPath = ctx.request.path;
+
+  //   if (requestPath.startsWith(output.publicPath)) {
+  //     const modifiedPath = requestPath.substring(output.publicPath.length);
+
+  //     if (modifiedPath.startsWith('/')) {
+  //       ctx.request.path = modifiedPath;
+  //     } else {
+  //       ctx.request.path = `/${modifiedPath}`;
+  //     }
+  //   }
+  //   await StaticFilesHandler(ctx);
+  // });
+
+  // app.listen(port, () => {
+  //   logger.info(green(`preview server running at:\n`));
+  //   const interfaces = os.networkInterfaces();
+  //   Object.keys(interfaces).forEach((key) =>
+  //     (interfaces[key] || [])
+  //       .filter((details) => details.family === 'IPv4')
+  //       .map((detail) => {
+  //         return {
+  //           type: detail.address.includes('127.0.0.1')
+  //             ? 'Local:   '
+  //             : 'Network: ',
+  //           host: detail.address
+  //         };
+  //       })
+  //       .forEach(({ type, host }) => {
+  //         const url = `${'http'}://${host}:${bold(port)}${
+  //           output.publicPath ?? ''
+  //         }`;
+  //         logger.info(`${magenta('>')} ${type} ${cyan(url)}`);
+  //       })
+  //   );
+  // });
 }
 
 export async function watch(

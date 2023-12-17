@@ -1,6 +1,7 @@
 import http from 'node:http';
 import http2 from 'node:http2';
 import Koa from 'koa';
+// import compression from 'koa-compress';
 
 import { Compiler } from '../compiler/index.js';
 import {
@@ -28,13 +29,14 @@ import {
   lazyCompilationPlugin,
   proxyPlugin,
   recordsPlugin,
-  resourcesPlugin
+  resourcesPlugin,
+  sirvPlugin
 } from './middlewares/index.js';
 import { __FARM_GLOBAL__ } from '../config/_global.js';
 import { resolveServerUrls } from '../utils/http.js';
 import WsServer from './ws.js';
-import { Config } from '../../binding/index.js';
-import { Server } from './type.js';
+import type { Config } from '../../binding/index.js';
+import type { Server } from './type.js';
 
 /**
  * Farm Dev Server, responsible for:
@@ -53,6 +55,7 @@ interface FarmServerContext {
   serverOptions?: {
     resolvedUrls?: ServerUrls;
   };
+  compilationConfig?: Config;
 }
 interface ServerUrls {
   local: string[];
@@ -65,7 +68,7 @@ type ErrorMap = {
 };
 
 interface ImplDevServer {
-  createFarmServer(options: UserServerConfig): void;
+  createServer(options: UserServerConfig): void;
   listen(): Promise<void>;
   close(): Promise<void>;
   getCompiler(): Compiler;
@@ -86,15 +89,12 @@ export class DevServer implements ImplDevServer {
   compilationConfig?: Config;
 
   constructor(
-    private _compiler: Compiler,
+    private _compiler: Compiler | null,
     public logger: Logger,
     options?: UserConfig,
     compilationConfig?: Config
   ) {
-    this.publicDir = normalizePublicDir(
-      _compiler.config.config.root,
-      options.publicDir
-    );
+    this.publicDir = normalizePublicDir(options.root, options.publicDir);
 
     this.publicPath =
       normalizePublicPath(
@@ -207,7 +207,7 @@ export class DevServer implements ImplDevServer {
     await Promise.all(promises);
   }
 
-  public createFarmServer(options: UserServerConfig) {
+  public createServer(options: UserServerConfig) {
     const { https, host = 'localhost', middlewares = [] } = options;
     const protocol = https ? 'https' : 'http';
     let hostname;
@@ -244,7 +244,24 @@ export class DevServer implements ImplDevServer {
       logger: this.logger,
       serverOptions: {}
     };
-    this.resolvedFarmServerMiddleware(middlewares);
+    this.resolvedServerMiddleware(middlewares);
+  }
+
+  public createPreviewServer(options: UserServerConfig) {
+    const { middlewares = [] } = options;
+
+    this.config = normalizeDevServerOptions(options, 'development');
+    this._app = new Koa();
+    this.server = http.createServer(this._app.callback());
+    this._context = {
+      config: this.config,
+      app: this._app,
+      server: this.server,
+      compiler: null,
+      logger: this.logger,
+      compilationConfig: this.compilationConfig
+    };
+    this.resolvedPreviewServerMiddleware(middlewares);
   }
 
   static async resolvePortConflict(
@@ -308,9 +325,7 @@ export class DevServer implements ImplDevServer {
     this.getCompiler().addExtraWatchFile(root, deps);
   }
 
-  private resolvedFarmServerMiddleware(
-    middlewares?: DevServerMiddleware[]
-  ): void {
+  private resolvedServerMiddleware(middlewares?: DevServerMiddleware[]): void {
     const resolvedPlugins = [
       ...(middlewares || []),
       headersPlugin,
@@ -319,6 +334,19 @@ export class DevServer implements ImplDevServer {
       corsPlugin,
       resourcesPlugin,
       recordsPlugin,
+      proxyPlugin
+    ];
+
+    resolvedPlugins.forEach((plugin) => plugin(this));
+  }
+
+  private resolvedPreviewServerMiddleware(
+    previewMiddlewares?: DevServerMiddleware[]
+  ): void {
+    const resolvedPlugins = [
+      ...(previewMiddlewares || []),
+      // compression,
+      sirvPlugin,
       proxyPlugin
     ];
 

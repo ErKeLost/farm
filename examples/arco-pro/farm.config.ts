@@ -31,8 +31,7 @@ export default defineConfig({
     },
     partialBundling: {
       targetMinSize: 1024 * 2
-    },
-    persistentCache: false
+    }
   },
   server: {
     cors: true,
