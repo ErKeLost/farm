@@ -1,0 +1,23 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [0.0.1](https://github.com/ErKeLost/farm/releases/tag/farmfe_testing_helpers-v0.0.1) - 2024-03-11
+
+### Added
+- *(refactor)* RFC-003 New Partial Bundling Algorithm ([#559](https://github.com/ErKeLost/farm/pull/559))
+- support polyfill ([#255](https://github.com/ErKeLost/farm/pull/255))
+- support resolve browser ([#63](https://github.com/ErKeLost/farm/pull/63))
+
+### Other
+- update deps ([#740](https://github.com/ErKeLost/farm/pull/740))
+- add more features ([#387](https://github.com/ErKeLost/farm/pull/387))
+- Feat/opt entry output ([#381](https://github.com/ErKeLost/farm/pull/381))
+- bugfix/source-module-graph-error ([#192](https://github.com/ErKeLost/farm/pull/192))
+- Feat/css hmr ([#36](https://github.com/ErKeLost/farm/pull/36))
+- Feat/hmr ([#27](https://github.com/ErKeLost/farm/pull/27))
+- Feat/hmr ([#26](https://github.com/ErKeLost/farm/pull/26))
