@@ -1,3 +1,74 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [0.0.1](https://github.com/ErKeLost/farm/releases/tag/farmfe_plugin_react-v0.0.1) - 2024-03-12
+
+### Added
+- preserve comments [#607](https://github.com/ErKeLost/farm/pull/607) ([#900](https://github.com/ErKeLost/farm/pull/900))
+- *(hmr)* refactor hmr ([#835](https://github.com/ErKeLost/farm/pull/835))
+- support linux-x64-musl ([#838](https://github.com/ErKeLost/farm/pull/838))
+- support swc plugins ([#199](https://github.com/ErKeLost/farm/pull/199))
+- tree shake ([#99](https://github.com/ErKeLost/farm/pull/99))
+
+### Fixed
+- [#857](https://github.com/ErKeLost/farm/pull/857) [#460](https://github.com/ErKeLost/farm/pull/460) ([#896](https://github.com/ErKeLost/farm/pull/896))
+- win32-ia32 ci build ([#826](https://github.com/ErKeLost/farm/pull/826))
+- [#769](https://github.com/ErKeLost/farm/pull/769) ([#773](https://github.com/ErKeLost/farm/pull/773))
+- linux arm64 native plugin resolving ([#750](https://github.com/ErKeLost/farm/pull/750))
+- *(WIP)* fix some bugs and optimize code ([#643](https://github.com/ErKeLost/farm/pull/643))
+- css modules sourcemap gen fail ([#621](https://github.com/ErKeLost/farm/pull/621))
+- dev code presents in prod ([#309](https://github.com/ErKeLost/farm/pull/309))
+- pnpm-v8 depsversion error ([#223](https://github.com/ErKeLost/farm/pull/223))
+- release.yaml error
+
+### Other
+- update rust plugin scripts
+- bump 1.0.0-beta ([#1011](https://github.com/ErKeLost/farm/pull/1011))
+- ready to release 1.0.0-beta ([#936](https://github.com/ErKeLost/farm/pull/936))
+- Version Packages ([#906](https://github.com/ErKeLost/farm/pull/906))
+- Version Packages ([#898](https://github.com/ErKeLost/farm/pull/898))
+- Version Packages ([#843](https://github.com/ErKeLost/farm/pull/843))
+- Version Packages ([#840](https://github.com/ErKeLost/farm/pull/840))
+- Version Packages ([#817](https://github.com/ErKeLost/farm/pull/817))
+- Version Packages ([#797](https://github.com/ErKeLost/farm/pull/797))
+- Version Packages ([#793](https://github.com/ErKeLost/farm/pull/793))
+- downgrade glibc and support win32-ia32 and win32-arm64 ([#792](https://github.com/ErKeLost/farm/pull/792))
+- Version Packages ([#772](https://github.com/ErKeLost/farm/pull/772))
+- update rust plugins scripts ([#759](https://github.com/ErKeLost/farm/pull/759))
+- Version Packages ([#751](https://github.com/ErKeLost/farm/pull/751))
+- Version Packages ([#732](https://github.com/ErKeLost/farm/pull/732))
+- linux arm64 support ([#743](https://github.com/ErKeLost/farm/pull/743))
+- update deps ([#740](https://github.com/ErKeLost/farm/pull/740))
+- resource pot render ([#675](https://github.com/ErKeLost/farm/pull/675))
+- bump version for react and sass ([#676](https://github.com/ErKeLost/farm/pull/676))
+- Version Packages ([#641](https://github.com/ErKeLost/farm/pull/641))
+- Fix/bugs ([#640](https://github.com/ErKeLost/farm/pull/640))
+- Version Packages ([#617](https://github.com/ErKeLost/farm/pull/617))
+- Version Packages ([#612](https://github.com/ErKeLost/farm/pull/612))
+- Version Packages ([#501](https://github.com/ErKeLost/farm/pull/501))
+- Version Packages ([#487](https://github.com/ErKeLost/farm/pull/487))
+- *(*)* apply some lint suggestions ([#474](https://github.com/ErKeLost/farm/pull/474))
+- Version Packages ([#452](https://github.com/ErKeLost/farm/pull/452))
+- Support SSR ([#421](https://github.com/ErKeLost/farm/pull/421))
+- Version Packages ([#414](https://github.com/ErKeLost/farm/pull/414))
+- Version Packages ([#393](https://github.com/ErKeLost/farm/pull/393))
+- Version Packages ([#384](https://github.com/ErKeLost/farm/pull/384))
+- Version Packages ([#371](https://github.com/ErKeLost/farm/pull/371))
+- Version Packages ([#358](https://github.com/ErKeLost/farm/pull/358))
+- Version Packages ([#330](https://github.com/ErKeLost/farm/pull/330))
+- Version Packages ([#310](https://github.com/ErKeLost/farm/pull/310))
+- Version Packages ([#284](https://github.com/ErKeLost/farm/pull/284))
+- upgrade zig and napi-cli
+- Version Packages ([#243](https://github.com/ErKeLost/farm/pull/243))
+- republish @farmfe/plugin-react as it misses optionalDependencies field
+- republish packages
+- Version Packages V0.5 ([#95](https://github.com/ErKeLost/farm/pull/95))
+- Refactor Rust plugin system ([#82](https://github.com/ErKeLost/farm/pull/82))
 # @farmfe/plugin-react
 
 ## 1.0.0-beta.0
