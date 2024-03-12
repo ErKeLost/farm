@@ -13,9 +13,9 @@ edition = "2021"
 # ]
 
 [dependencies]
-farmfe_core = { path = "../core", version = "0.3.0" }
+farmfe_core = { path = "../core", version = "0.4.0" }
 farmfe_utils = { path = "../utils", version = "0.1.2" }
-farmfe_toolkit_plugin_types = { path = "../toolkit_plugin_types", version = "0.0.8" }
+farmfe_toolkit_plugin_types = { path = "../toolkit_plugin_types", version = "0.0.9" }
 swc_ecma_parser = { version = "0.142.0" }
 swc_ecma_visit = { version = "0.97.0" }
 swc_ecma_codegen = { version = "0.147.0" }
