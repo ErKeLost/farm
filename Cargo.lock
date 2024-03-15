@@ -1298,7 +1298,7 @@ checksum = "4443176a9f2c162692bd3d352d745ef9413eec5782a80d8fd6f8a1ac692a07f7"
 
 [[package]]
 name = "farmfe_compiler"
-version = "0.0.1"
+version = "0.0.2"
 dependencies = [
  "farmfe_core",
  "farmfe_plugin_css",
@@ -1494,7 +1494,7 @@ dependencies = [
 
 [[package]]
 name = "farmfe_plugin_resolve"
-version = "0.0.1"
+version = "0.0.2"
 dependencies = [
  "farmfe_core",
  "farmfe_testing_helpers",
@@ -1583,7 +1583,7 @@ dependencies = [
 
 [[package]]
 name = "farmfe_toolkit"
-version = "0.0.2"
+version = "0.0.3"
 dependencies = [
  "anyhow",
  "farmfe_core",
@@ -1617,7 +1617,7 @@ dependencies = [
 
 [[package]]
 name = "farmfe_toolkit_plugin_types"
-version = "0.0.9"
+version = "0.0.10"
 dependencies = [
  "farmfe_core",
  "lazy_static",
