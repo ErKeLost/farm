@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2](https://github.com/ErKeLost/farm/compare/farmfe_plugin_tree_shake-v0.0.1...farmfe_plugin_tree_shake-v0.0.2) - 2024-03-17
+
+### Added
+- remove if (import.meta.hot) guard for production ([#1030](https://github.com/ErKeLost/farm/pull/1030))
+
+### Other
+- Feat/update readme ([#1028](https://github.com/ErKeLost/farm/pull/1028))
+
 ## [0.0.1](https://github.com/farm-fe/farm/releases/tag/farmfe_plugin_tree_shake-v0.0.1) - 2024-03-12
 
 ### Added
