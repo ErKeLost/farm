@@ -4,7 +4,6 @@ import farmJsPluginLess from '@farmfe/js-plugin-less';
 import farmJsPluginSvgr from '@farmfe/js-plugin-svgr';
 
 export default defineConfig(async (env) => {
-  console.log(env);
   return {
     compilation: {
       input: {

@@ -57,13 +57,18 @@ export class HmrClient {
 
     socket.addEventListener('close', async ({ wasClean }) => {
       if (wasClean) return;
-
+      
       this.notifyListeners('vite:ws:disconnect', { webSocket: socket });
       this.notifyListeners('farm:ws:disconnect', { webSocket: socket });
 
       logger.debug('disconnected from the server, please reload the page.');
-      await waitForSuccessfulPing(socketProtocol, `${socketHostUrl}`);
-      location.reload();
+      
+      if (socket.readyState === WebSocket.CLOSED) {
+        setTimeout(async () => {
+          await waitForSuccessfulPing(socketProtocol, `${socketHostUrl}`);
+          location.reload();
+        }, 1000);
+      }
     });
 
     return socket;
@@ -298,6 +303,7 @@ async function waitForSuccessfulPing(
   if (await ping()) {
     return;
   }
+
   await wait(ms);
 
   // eslint-disable-next-line no-constant-condition
