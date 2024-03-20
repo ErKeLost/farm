@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3](https://github.com/ErKeLost/farm/compare/farmfe_toolkit-v0.0.2...farmfe_toolkit-v0.0.3) - 2024-03-20
+
+### Added
+- minify modules instead of resource pots ([#1025](https://github.com/ErKeLost/farm/pull/1025))
+
+### Other
+- Feat/update readme ([#1028](https://github.com/ErKeLost/farm/pull/1028))
+
 ## [0.0.2](https://github.com/farm-fe/farm/compare/farmfe_toolkit-v0.0.1...farmfe_toolkit-v0.0.2) - 2024-03-13
 
 ### Other
