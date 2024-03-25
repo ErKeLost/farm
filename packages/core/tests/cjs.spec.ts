@@ -21,6 +21,7 @@ test('resolveUserConfig', async () => {
   expect(config.compilation.define).toEqual({
     FARM_HMR_HOST: true,
     FARM_HMR_PATH: '/__hmr',
+    FARM_HMR_BASE: '/__hmr',
     FARM_HMR_PORT: '9000',
     FARM_PROCESS_ENV: {
       NODE_ENV: 'development'
@@ -63,6 +64,7 @@ test('resolveUserConfig', async () => {
       'package.json[module]': 'unknown',
       FARM_HMR_HOST: 'true',
       FARM_HMR_PATH: '/__hmr',
+      FARM_HMR_BASE: '/__hmr',
       FARM_HMR_PORT: '9000',
       FARM_HMR_PROTOCOL: 'ws'
     },
