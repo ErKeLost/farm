@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.3](https://github.com/ErKeLost/farm/compare/farmfe_core-v0.4.2...farmfe_core-v0.4.3) - 2024-03-26
+
+### Other
+- *(splitQuery)* change split to splitOnce ([#1068](https://github.com/ErKeLost/farm/pull/1068))
+
 ## [0.4.2](https://github.com/farm-fe/farm/compare/farmfe_core-v0.4.1...farmfe_core-v0.4.2) - 2024-03-24
 
 ### Added
