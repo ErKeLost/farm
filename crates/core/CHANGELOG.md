@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.5](https://github.com/ErKeLost/farm/compare/farmfe_core-v0.4.4...farmfe_core-v0.4.5) - 2024-04-07
+
+### Other
+- Chore/example vue2 ([#1127](https://github.com/ErKeLost/farm/pull/1127))
+
 ## [0.4.4](https://github.com/farm-fe/farm/compare/farmfe_core-v0.4.3...farmfe_core-v0.4.4) - 2024-04-02
 
 ### Other
