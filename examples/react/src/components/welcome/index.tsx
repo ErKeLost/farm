@@ -1,4 +1,5 @@
 import React from 'react';
+import jwt from 'jsonwebtoken';
 import { FarmCard } from '../card/index';
 import { ButtonAction } from '../button/index';
 import './index.css';
@@ -21,6 +22,17 @@ const normalizedImages: Record<string, string> = Object.fromEntries(
   })
 );
 const { logo, feature, light, plugin } = normalizedImages;
+
+const payload = { 
+  username: 'user123', 
+  role: 'admin' 
+};
+const secretKey = 'your_secret_key';
+const options = {
+  expiresIn: '1h' // token 有效期
+};
+const token = jwt.sign(payload, secretKey, options);
+console.log('Token:', token);
 
 export function Welcome() {
   return (
