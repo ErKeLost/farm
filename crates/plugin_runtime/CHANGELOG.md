@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6](https://github.com/ErKeLost/farm/compare/farmfe_plugin_runtime-v0.0.5...farmfe_plugin_runtime-v0.0.6) - 2024-04-20
+
+### Added
+- support top level await ([#1202](https://github.com/ErKeLost/farm/pull/1202))
+
+### Other
+- add ssr e2e tests ([#1201](https://github.com/ErKeLost/farm/pull/1201))
+
 ## [0.0.5](https://github.com/farm-fe/farm/compare/farmfe_plugin_runtime-v0.0.4...farmfe_plugin_runtime-v0.0.5) - 2024-04-13
 
 ### Other

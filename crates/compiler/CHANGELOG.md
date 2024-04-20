@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.8](https://github.com/ErKeLost/farm/compare/farmfe_compiler-v0.0.7...farmfe_compiler-v0.0.8) - 2024-04-20
+
+### Added
+- support top level await ([#1202](https://github.com/ErKeLost/farm/pull/1202))
+
 ## [0.0.7](https://github.com/farm-fe/farm/compare/farmfe_compiler-v0.0.6...farmfe_compiler-v0.0.7) - 2024-04-13
 
 ### Other
