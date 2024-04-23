@@ -28,7 +28,7 @@ export async function compilerHandler(
   try {
     await callback();
   } catch (error) {
-    logger.error(error, { exit: true });
+    logger.error(`我是build 爆的错 ${error}`, { exit: true });
     return;
   }
 
