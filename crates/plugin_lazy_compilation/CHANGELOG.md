@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6](https://github.com/ErKeLost/farm/compare/farmfe_plugin_lazy_compilation-v0.0.5...farmfe_plugin_lazy_compilation-v0.0.6) - 2024-04-25
+
+### Added
+- support lazy compilation when targeting node ([#1035](https://github.com/ErKeLost/farm/pull/1035))
+
 ## [0.0.5](https://github.com/farm-fe/farm/compare/farmfe_plugin_lazy_compilation-v0.0.4...farmfe_plugin_lazy_compilation-v0.0.5) - 2024-04-13
 
 ### Other
