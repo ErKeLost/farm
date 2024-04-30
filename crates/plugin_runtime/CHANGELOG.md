@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6](https://github.com/ErKeLost/farm/compare/farmfe_plugin_runtime-v0.0.5...farmfe_plugin_runtime-v0.0.6) - 2024-04-30
+
+### Added
+- support lazy compilation when targeting node ([#1035](https://github.com/ErKeLost/farm/pull/1035))
+- support top level await ([#1202](https://github.com/ErKeLost/farm/pull/1202))
+
+### Fixed
+- minify module filter use absolute path ([#1259](https://github.com/ErKeLost/farm/pull/1259))
+- vite migrations bugs ([#1236](https://github.com/ErKeLost/farm/pull/1236))
+
+### Other
+- Fix/lazy compilation ([#1253](https://github.com/ErKeLost/farm/pull/1253))
+- update swc to v0.90 ([#1227](https://github.com/ErKeLost/farm/pull/1227))
+- add ssr e2e tests ([#1201](https://github.com/ErKeLost/farm/pull/1201))
+
 ## [0.0.5](https://github.com/farm-fe/farm/compare/farmfe_plugin_runtime-v0.0.4...farmfe_plugin_runtime-v0.0.5) - 2024-04-13
 
 ### Other
