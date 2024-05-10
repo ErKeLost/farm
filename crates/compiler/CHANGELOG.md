@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.9](https://github.com/ErKeLost/farm/compare/farmfe_compiler-v0.0.8...farmfe_compiler-v0.0.9) - 2024-05-10
+
+### Added
+- support obj external & dts support resolvedPaths ([#1282](https://github.com/ErKeLost/farm/pull/1282))
+
 ## [0.0.8](https://github.com/farm-fe/farm/compare/farmfe_compiler-v0.0.7...farmfe_compiler-v0.0.8) - 2024-05-09
 
 ### Added
