@@ -2,6 +2,7 @@
 #![allow(clippy::ptr_arg)]
 #![feature(trivial_bounds)]
 #![allow(clippy::redundant_closure_call)]
+#![feature(ptr_addr_eq)]
 // #![feature(unsize)]
 // #![feature(trait_upcasting)]
 
