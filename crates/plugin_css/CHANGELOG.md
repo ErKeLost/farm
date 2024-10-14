@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.14](https://github.com/ErKeLost/farm/compare/farmfe_plugin_css-v0.0.13...farmfe_plugin_css-v0.0.14) - 2024-10-14
+
+### Added
+
+- *(css)* support css module name coversion ([#1784](https://github.com/ErKeLost/farm/pull/1784))
+
+### Fixed
+
+- invalid css [#1748](https://github.com/ErKeLost/farm/pull/1748) and [#1557](https://github.com/ErKeLost/farm/pull/1557) ([#1823](https://github.com/ErKeLost/farm/pull/1823))
+
 ## [0.0.13](https://github.com/farm-fe/farm/compare/farmfe_plugin_css-v0.0.12...farmfe_plugin_css-v0.0.13) - 2024-07-25
 
 ### Other
