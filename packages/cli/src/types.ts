@@ -6,6 +6,7 @@ export interface GlobalCliOptions {
   m?: string;
   mode?: 'development' | 'production' | string;
   clearScreen?: boolean;
+  // @deprecated use logger {timeUnit: 'ms'}
   timeUnit?: 'ms' | 's';
 }
 
