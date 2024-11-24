@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.13](https://github.com/ErKeLost/farm/compare/farmfe_plugin_html-v0.0.12...farmfe_plugin_html-v0.0.13) - 2024-11-24
+
+### Fixed
+
+- external alias [#1957](https://github.com/ErKeLost/farm/pull/1957) ([#1959](https://github.com/ErKeLost/farm/pull/1959))
+
 ## [0.0.12](https://github.com/farm-fe/farm/compare/farmfe_plugin_html-v0.0.11...farmfe_plugin_html-v0.0.12) - 2024-10-31
 
 ### Fixed
