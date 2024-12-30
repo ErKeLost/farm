@@ -1,6 +1,6 @@
 [package]
 name = "farmfe_compiler"
-version = "0.0.14"
+version = "0.0.15"
 edition = "2021"
 authors = ["brightwu(吴明亮) <1521488775@qq.com>"]
 license = "MIT"
