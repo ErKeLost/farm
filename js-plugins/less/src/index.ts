@@ -5,7 +5,7 @@ import {
   JsPlugin,
   UserConfig,
   getAdditionContext
-} from '@farmfe/core';
+} from 'farm';
 import { createLessResolvePlugin } from './plugin-resolve.js';
 import {
   getLessImplementation,

@@ -1,4 +1,4 @@
-import { defineConfig } from '@farmfe/core';
+import { defineConfig } from 'farm';
 import dts from '@farmfe/js-plugin-dts';
 
 export default defineConfig({
@@ -11,7 +11,7 @@ export default defineConfig({
       format: ['esm', 'cjs']
     },
     external: [
-      '@farmfe/core',
+      'farm',
       '@tailwindcss/node',
       '@tailwindcss/oxide',
       'lightningcss',

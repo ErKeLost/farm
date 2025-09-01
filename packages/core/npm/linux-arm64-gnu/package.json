@@ -1,5 +1,5 @@
 {
-  "name": "@farmfe/core-linux-arm64-gnu",
+  "name": "farm-linux-arm64-gnu",
   "version": "0.0.0",
   "os": ["linux"],
   "cpu": ["arm64"],

@@ -2,7 +2,7 @@ import { builtinModules } from 'module';
 import farmDtsPlugin from '@farmfe/js-plugin-dts';
 
 /**
- * @type {import('@farmfe/core').UserConfig}
+ * @type {import('farm').UserConfig}
  */
 export default {
   compilation: {
@@ -18,7 +18,7 @@ export default {
     external: [
       ...builtinModules.map((m) => `^${m}$`),
       ...builtinModules.map((m) => `^node:${m}$`),
-      '@farmfe/core',
+      'farm',
       '^less$',
       '^sass$',
       '^stylus$'

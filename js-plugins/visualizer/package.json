@@ -39,6 +39,7 @@
     "vue-router": "^4.2.1",
     "ant-design-vue": "^4.1.2",
     "pinia": "^2.1.7",
+    "farm": "workspace:^",
     "koa": "^2.13.4",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.2"

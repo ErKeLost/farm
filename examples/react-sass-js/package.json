@@ -9,14 +9,13 @@
     "react-dom": "18"
   },
   "devDependencies": {
-    "@farmfe/cli": "workspace:*",
-    "@farmfe/core": "workspace:*",
     "@farmfe/js-plugin-sass": "workspace:*",
     "@farmfe/plugin-react": "workspace:*",
     "@farmfe/plugin-sass": "workspace:*",
     "@types/react": "18",
     "@types/react-dom": "18",
-    "react-refresh": "^0.14.0"
+    "react-refresh": "^0.14.0",
+    "farm": "workspace:*"
   },
   "scripts": {
     "start": "farm start",

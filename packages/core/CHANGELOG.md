@@ -1,4 +1,4 @@
-# @farmfe/core
+# farm
 
 ## 2.0.0-nightly-20250827162746
 
@@ -708,7 +708,7 @@
 
 ### Minor Changes
 
-- 122ab6d0: optimize @farmfe/core api usage
+- 122ab6d0: optimize farm api usage
 
 ### Patch Changes
 
@@ -2004,7 +2004,7 @@
 
   - remove resource pot graph to optimize the compilation speed
   - implement partial bundling algorithm
-  - optimize @farmfe/cli, remove @farmfe/core from its dependencies
+  - optimize farm, remove farm from its dependencies
   - optimize plugin react to skip duplicate module building based on process.env.NODE_ENV
 
 ### Patch Changes

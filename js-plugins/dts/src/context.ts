@@ -1,6 +1,6 @@
 import os from 'node:os';
 import { relative, resolve } from 'node:path';
-import type { UserConfig } from '@farmfe/core';
+import type { UserConfig } from 'farm';
 import chalk from 'chalk';
 import glob from 'fast-glob';
 import { CompilerOptions, Project, SourceFile } from 'ts-morph';

@@ -39,8 +39,8 @@
   "keywords": [],
   "license": "MIT",
   "devDependencies": {
-    "@farmfe/cli": "workspace:*",
-    "@farmfe/core": "workspace:*",
+    "farm": "workspace:*",
+    "farm": "workspace:*",
     "@farmfe/js-plugin-dts": "workspace:^"
   },
   "dependencies": {
@@ -48,6 +48,6 @@
     "@svgr/plugin-jsx": "^8.1.0"
   },
   "peerDependencies": {
-    "@farmfe/core": "workspace:*"
+    "farm": "workspace:*"
   }
 }

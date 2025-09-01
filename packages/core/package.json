@@ -1,9 +1,12 @@
 {
-  "name": "@farmfe/core",
+  "name": "farm",
   "version": "2.0.0-nightly-20250827162746",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "bin": {
+    "farm": "./bin/farm.mjs"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -86,6 +89,7 @@
     "@farmfe/utils": "workspace:*",
     "@polka/compression": "1.0.0-next.25",
     "@swc/helpers": "0.5.17",
+    "cac": "^6.7.14",
     "chokidar": "^3.5.3",
     "connect": "^3.7.0",
     "cors": "^2.8.5",
@@ -110,6 +114,7 @@
     "node": ">=16.15.1"
   },
   "files": [
+    "bin",
     "binding/binding.cjs",
     "binding/binding.d.ts",
     "binding/index.d.ts",

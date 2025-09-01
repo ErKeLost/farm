@@ -12,10 +12,9 @@
     "solid-js": "^1.7.8"
   },
   "devDependencies": {
-    "@farmfe/cli": "workspace:*",
-    "@farmfe/core": "workspace:*",
     "solid-refresh": "^0.5.3",
-    "vite-plugin-solid": "^2.7.0"
+    "vite-plugin-solid": "^2.7.0",
+    "farm": "workspace:*"
   },
   "scripts": {
     "start": "farm start",

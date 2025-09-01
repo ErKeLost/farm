@@ -18,7 +18,7 @@ await execa("node", ["./scripts/clean.mjs"], { cwd });
 console.log("Code Spell lint...");
 await execa("npx", ["cspell", "**", "--gitignore"], { cwd });
 
-console.log("build core、js/rust plugins、cli ...");
+console.log("build core、js/rust plugins ...");
 await runTaskQueue();
 
 console.log("Cargo check");

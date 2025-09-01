@@ -6,27 +6,27 @@
 
 - 9a227ad: Chore: release v2 nightly
 - Updated dependencies [63908eb]
-  - @farmfe/core@2.0.0-nightly-20250827162746
+  - farm@2.0.0-nightly-20250827162746
 
 ## 3.0.0-nightly-20250729025629
 
 ### Patch Changes
 
 - Updated dependencies [b730530]
-  - @farmfe/core@2.0.0-nightly-20250729025629
+  - farm@2.0.0-nightly-20250729025629
 
 ## 3.0.0-nightly-20250411141103
 
 ### Patch Changes
 
-- @farmfe/core@2.0.0-nightly-20250411141103
+- farm@2.0.0-nightly-20250411141103
 
 ## 3.0.0-nightly-20250411100807
 
 ### Patch Changes
 
 - Updated dependencies [60f40f0]
-  - @farmfe/core@2.0.0-nightly-20250411100807
+  - farm@2.0.0-nightly-20250411100807
 
 ## 3.0.0-nightly-20250410022118
 
@@ -35,75 +35,75 @@
 - Updated dependencies [21ac2ac]
 - Updated dependencies [b8f7fc5]
 - Updated dependencies [ad09476]
-  - @farmfe/core@2.0.0-nightly-20250410022118
+  - farm@2.0.0-nightly-20250410022118
 
 ## 3.0.0-nightly-20241029121500
 
 ### Patch Changes
 
 - Updated dependencies [b327dd1]
-  - @farmfe/core@2.0.0-nightly-20241029121500
+  - farm@2.0.0-nightly-20241029121500
 
 ## 3.0.0-nightly-20241029095811
 
 ### Patch Changes
 
 - Updated dependencies [b3a7caf]
-  - @farmfe/core@2.0.0-nightly-20241029095811
+  - farm@2.0.0-nightly-20241029095811
 
 ## 3.0.0-nightly-20241024090954
 
 ### Patch Changes
 
 - Updated dependencies [f460eb1]
-  - @farmfe/core@2.0.0-nightly-20241024090954
+  - farm@2.0.0-nightly-20241024090954
 
 ## 3.0.0-nightly-20241024075304
 
 ### Patch Changes
 
-- @farmfe/core@2.0.0-nightly-20241024075304
+- farm@2.0.0-nightly-20241024075304
 
 ## 3.0.0-nightly-20241023101523
 
 ### Patch Changes
 
 - Updated dependencies [d7c5ffb]
-  - @farmfe/core@2.0.0-nightly-20241023101523
+  - farm@2.0.0-nightly-20241023101523
 
 ## 3.0.0-nightly-20241023020505
 
 ### Patch Changes
 
 - Updated dependencies [3651244]
-  - @farmfe/core@2.0.0-nightly-20241023020505
+  - farm@2.0.0-nightly-20241023020505
 
 ## 3.0.0-nightly-20241022143924
 
 ### Patch Changes
 
 - Updated dependencies [83838bd]
-  - @farmfe/core@2.0.0-nightly-20241022143924
+  - farm@2.0.0-nightly-20241022143924
 
 ## 3.0.0-nightly-20241022124925
 
 ### Patch Changes
 
-- @farmfe/core@2.0.0-nightly-20241022124925
+- farm@2.0.0-nightly-20241022124925
 
 ## 3.0.0-nightly-20241022041556
 
 ### Patch Changes
 
 - Updated dependencies [24347c9]
-  - @farmfe/core@2.0.0-nightly-20241022041556
+  - farm@2.0.0-nightly-20241022041556
 
 ## 3.0.0-nightly-20241022014521
 
 ### Patch Changes
 
 - Updated dependencies [a82a5b2]
-  - @farmfe/core@2.0.0-nightly-20241022014521
+  - farm@2.0.0-nightly-20241022014521
 
 ## 2.13.1
 
@@ -116,7 +116,7 @@
 ### Patch Changes
 
 - Updated dependencies [25f3d3f6]
-  - @farmfe/core@1.7.0
+  - farm@1.7.0
 
 ## 2.12.1
 
@@ -124,7 +124,7 @@
 
 - 0163299e: Fix persistent cache panic when using addFileWatchFile with query #2067
 - Updated dependencies [0163299e]
-  - @farmfe/core@1.6.6
+  - farm@1.6.6
 
 ## 2.12.0
 
@@ -132,7 +132,7 @@
 
 - Updated dependencies [b235a919]
 - Updated dependencies [6b849123]
-  - @farmfe/core@1.6.0
+  - farm@1.6.0
 
 ## 2.11.0
 
@@ -142,14 +142,14 @@
 - Updated dependencies [e63b163a]
 - Updated dependencies [e63b163a]
 - Updated dependencies [e63b163a]
-  - @farmfe/core@1.5.0
+  - farm@1.5.0
 
 ## 2.10.0
 
 ### Patch Changes
 
 - Updated dependencies [7d86847c]
-  - @farmfe/core@1.4.0
+  - farm@1.4.0
 
 ## 2.9.0
 
@@ -162,7 +162,7 @@
 - Updated dependencies [385e5b25]
 - Updated dependencies [11081589]
 - Updated dependencies [89c40302]
-  - @farmfe/core@1.3.0
+  - farm@1.3.0
 
 ## 2.8.1
 
@@ -171,7 +171,7 @@
 - ca28145c: \* Fix that .sass file should render with indentedSyntax
   - Fix sass a few `@import` bugs when resolving dependencies
 - Updated dependencies [ca28145c]
-  - @farmfe/core@1.2.3
+  - farm@1.2.3
 
 ## 2.8.0
 
@@ -179,7 +179,7 @@
 
 - Updated dependencies [122ab6d0]
 - Updated dependencies [eb2eee75]
-  - @farmfe/core@1.2.0
+  - farm@1.2.0
 
 ## 2.7.1
 
@@ -190,7 +190,7 @@
   - fix css @import without .css suffix #1230
   - fix json transform #1231
 - Updated dependencies [67716076]
-  - @farmfe/core@1.1.1
+  - farm@1.1.1
 
 ## 2.7.0
 
@@ -201,7 +201,7 @@
 - Updated dependencies [3581ee5e]
 - Updated dependencies [86d17342]
 - Updated dependencies [4e8ebbcc]
-  - @farmfe/core@1.1.0
+  - farm@1.1.0
 
 ## 2.6.0
 
@@ -212,7 +212,7 @@
 ### Patch Changes
 
 - Updated dependencies [d330af58]
-  - @farmfe/core@1.0.17
+  - farm@1.0.17
 
 ## 2.5.4
 
@@ -222,7 +222,7 @@
 - Updated dependencies [e1071eca]
 - Updated dependencies [6cbc9fa8]
 - Updated dependencies [2ada5819]
-  - @farmfe/core@1.0.16
+  - farm@1.0.16
 
 ## 2.5.3
 
@@ -231,7 +231,7 @@
 - 1ec7dd74: fix resolve path
 - Updated dependencies [1ec7dd74]
 - Updated dependencies [6c03e7e0]
-  - @farmfe/core@1.0.11
+  - farm@1.0.11
 
 ## 2.5.2
 
@@ -239,7 +239,7 @@
 
 - cb7df71f: Support alias resolve and url rebase for import.meta.glob, sass and less plugins
 - Updated dependencies [cb7df71f]
-  - @farmfe/core@1.0.8
+  - farm@1.0.8
 
 ## 2.5.1
 
@@ -248,14 +248,14 @@
 - a749b5af: Fix Vite project migrations issues
 - Updated dependencies [a749b5af]
 - Updated dependencies [5b9cb22c]
-  - @farmfe/core@1.0.4
+  - farm@1.0.4
 
 ## 2.5.0
 
 ### Patch Changes
 
 - Updated dependencies [8f8366de]
-  - @farmfe/core@1.0.0
+  - farm@1.0.0
 
 ## 2.4.0
 
@@ -264,7 +264,7 @@
 - Updated dependencies [992c0a5c]
 - Updated dependencies [116ffa94]
 - Updated dependencies [7fc2a650]
-  - @farmfe/core@0.16.0
+  - farm@0.16.0
 
 ## 2.3.0
 
@@ -281,7 +281,7 @@
 - Updated dependencies [24571102]
 - Updated dependencies [78c19574]
 - Updated dependencies [8846d063]
-  - @farmfe/core@0.15.0
+  - farm@0.15.0
 
 ## 2.2.0
 
@@ -295,7 +295,7 @@
 - Updated dependencies [c12156ff]
 - Updated dependencies [72bfe2af]
 - Updated dependencies [0a20271a]
-  - @farmfe/core@0.14.0
+  - farm@0.14.0
 
 ## 2.1.2
 
@@ -304,7 +304,7 @@
 - a569977: only load file when query is empty and the file exists
 - Updated dependencies [a569977]
 - Updated dependencies [a569977]
-  - @farmfe/core@0.13.19
+  - farm@0.13.19
 
 ## 2.1.1
 
@@ -321,7 +321,7 @@
 ### Patch Changes
 
 - Updated dependencies [7e17e0b]
-  - @farmfe/core@0.13.14
+  - farm@0.13.14
 
 ## 2.0.4
 
@@ -329,7 +329,7 @@
 
 - Updated dependencies [f7b1b9d]
 - Updated dependencies [5be3aab]
-  - @farmfe/core@0.13.0
+  - farm@0.13.0
 
 ## 2.0.3
 
@@ -348,21 +348,21 @@
 ### Patch Changes
 
 - Updated dependencies [ad00276]
-  - @farmfe/core@0.12.0
+  - farm@0.12.0
 
 ## 2.0.0
 
 ### Patch Changes
 
 - Updated dependencies [56f235c]
-  - @farmfe/core@0.11.0
+  - farm@0.11.0
 
 ## 1.0.7
 
 ### Patch Changes
 
 - Updated dependencies [d604b5e]
-  - @farmfe/core@0.10.0
+  - farm@0.10.0
 
 ## 1.0.6
 
@@ -370,7 +370,7 @@
 
 - 3073e19: Bump version for js plugins
 - Updated dependencies [3073e19]
-  - @farmfe/core@0.9.9
+  - farm@0.9.9
 
 ## 1.0.5
 
@@ -384,21 +384,21 @@
 
 - c36c767: Build js plugins using Farm
 - Updated dependencies [c36c767]
-  - @farmfe/core@0.9.6
+  - farm@0.9.6
 
 ## 2.0.0
 
 ### Patch Changes
 
 - Updated dependencies [55c0d0e]
-  - @farmfe/core@0.9.0
+  - farm@0.9.0
 
 ## 1.0.2
 
 ### Patch Changes
 
 - Updated dependencies [e780747]
-  - @farmfe/core@0.8.0
+  - farm@0.8.0
 
 ## 1.0.0
 
@@ -406,7 +406,7 @@
 
 - Updated dependencies [a04008f]
 - Updated dependencies [7ff4d97]
-  - @farmfe/core@0.7.0
+  - farm@0.7.0
 
 ## 0.1.0
 
@@ -414,7 +414,7 @@
 
 - Updated dependencies [9838407]
 - Updated dependencies [cc94e33]
-  - @farmfe/core@0.6.0
+  - farm@0.6.0
 
 ## 0.0.2
 

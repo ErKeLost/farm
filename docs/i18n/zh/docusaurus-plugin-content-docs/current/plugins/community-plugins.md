@@ -15,7 +15,7 @@ Farm支持 `Vite/Rollup` 插件开箱即用。所以`Vite/Rollup`或`unplugin`�
 使用 `farm.config.ts` 中的 `vitePlugins` 来配置 `Vite/Rollup` 插件。
 
 ```ts
-import { UserConfig } from '@farmfe/core';
+import { UserConfig } from "farm";
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 

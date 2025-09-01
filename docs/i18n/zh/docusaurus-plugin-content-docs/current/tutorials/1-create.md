@@ -23,11 +23,11 @@ pnpm add react react-dom && pnpm add react-refresh @types/react @types/react-dom
 
 然后安装 Farm 相关依赖:
 ```bash
-pnpm add -D @farmfe/cli @farmfe/core @farmfe/plugin-react
+pnpm add -D farm farm @farmfe/plugin-react
 ```
 React 项目需要 3 个包：
-* **`@farmfe/cli`**：该包提供了`farm start`、`farm build`、`farm Preview`等命令，必须与`@farmfe/core`一起使用，不能单独使用。
-* **`@farmfe/core`**：该软件包提供`编译`和`Dev Server`，为本地开发和产品构建提供所有必要的组件。 它导出`Compiler`，`DevServer`和`Watcher`，用于`编译项目`，`以开发模式服务项目`和`监视项目的热模块替换`。
+* **`farm`**：该包提供了`farm start`、`farm build`、`farm Preview`等命令，必须与`farm`一起使用，不能单独使用。
+* **`farm`**：该软件包提供`编译`和`Dev Server`，为本地开发和产品构建提供所有必要的组件。 它导出`Compiler`，`DevServer`和`Watcher`，用于`编译项目`，`以开发模式服务项目`和`监视项目的热模块替换`。
 * **`@farmfe/plugin-react`**：此包提供 React Jsx 编译和 React-refresh 支持。
 
 ## 创建 Farm 配置文件
@@ -40,7 +40,7 @@ React 项目需要 3 个包：
 ```
 并添加以下配置：
 ```ts
-import { UserConfig } from '@farmfe/core';
+import { UserConfig } from "farm";
 
 function defineConfig(config: UserConfig): UserConfig {
   return config;

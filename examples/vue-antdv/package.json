@@ -11,11 +11,10 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "@farmfe/cli": "workspace:*",
-    "@farmfe/core": "workspace:*",
     "@farmfe/js-plugin-less": "workspace:^",
     "@vitejs/plugin-vue": "^5.0.4",
-    "xlsx-js-style": "^1.2.0"
+    "xlsx-js-style": "^1.2.0",
+    "farm": "workspace:*"
   },
   "scripts": {
     "start": "farm start",

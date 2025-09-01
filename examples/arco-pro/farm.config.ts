@@ -1,5 +1,5 @@
 import { resolve } from 'node:path';
-import { defineConfig } from '@farmfe/core';
+import { defineConfig } from 'farm';
 import farmJsPluginLess from '@farmfe/js-plugin-less';
 import svgr from '@farmfe/js-plugin-svgr';
 
@@ -12,7 +12,7 @@ export default defineConfig((env) => {
       sourcemap: 'inline',
       presetEnv: false,
       concatenateModules: true,
-      persistentCache: false,
+      // persistentCache: false,
       // minify: {
       //   mangleExports: false,
       // },

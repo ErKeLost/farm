@@ -13,11 +13,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@farmfe/cli": "workspace:*",
-    "@farmfe/core": "workspace:*",
     "@farmfe/js-plugin-dts": "workspace:^",
     "@types/react": "18",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "farm": "workspace:*"
   },
   "dependencies": {
     "react-refresh": "^0.14.0"

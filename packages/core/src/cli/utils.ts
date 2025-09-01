@@ -1,9 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { isAbsolute, resolve } from 'node:path';
 
-import { Logger } from '@farmfe/core';
+import { Logger } from '../utils/index.js';
 
-import type { build, clean, preview, start, watch } from '@farmfe/core';
 import type {
   CleanOptions,
   CliBuildOptions,
@@ -24,17 +23,24 @@ const logger = new Logger();
  *   - `clean`: Clean up the cache built incrementally'.
  */
 export async function resolveCore(): Promise<{
-  start: typeof start;
-  build: typeof build;
-  watch: typeof watch;
-  preview: typeof preview;
-  clean: typeof clean;
+  start: (...args: any[]) => Promise<void>;
+  build: (...args: any[]) => Promise<void>;
+  watch: (...args: any[]) => Promise<void>;
+  preview: (...args: any[]) => Promise<void>;
+  clean: (...args: any[]) => Promise<void>;
 }> {
   try {
-    return import('@farmfe/core');
+    const core = await import('../index.js');
+    return {
+      start: core.start,
+      build: core.build,
+      watch: core.watch,
+      preview: core.preview,
+      clean: core.clean
+    };
   } catch (err) {
     logger.error(
-      `Cannot find @farmfe/core module, Did you successfully install: \n${err.stack},`,
+      `Cannot find farm module, Did you successfully install: \n${err.stack},`,
       { exit: true }
     );
   }
@@ -143,7 +149,7 @@ export function resolveCliConfig(
 }
 
 const { version } = JSON.parse(
-  readFileSync(new URL('../package.json', import.meta.url)).toString()
+  readFileSync(new URL('../../package.json', import.meta.url)).toString()
 );
 
 export const VERSION = version;

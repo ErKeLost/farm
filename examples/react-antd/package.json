@@ -15,15 +15,14 @@
     "react-router-dom": "^6.13.0"
   },
   "devDependencies": {
-    "@farmfe/cli": "workspace:*",
-    "@farmfe/core": "workspace:*",
     "@farmfe/js-plugin-sass": "workspace:*",
     "@farmfe/plugin-react": "workspace:*",
     "@farmfe/plugin-sass": "workspace:*",
     "@types/react": "18",
     "@types/react-dom": "18",
     "axios": "^1.6.5",
-    "react-refresh": "^0.14.0"
+    "react-refresh": "^0.14.0",
+    "farm": "workspace:*"
   },
   "scripts": {
     "start": "farm start",

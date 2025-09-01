@@ -4,10 +4,9 @@
   "private": true,
   "type": "module",
   "devDependencies": {
-    "@farmfe/cli": "workspace:*",
-    "@farmfe/core": "workspace:*",
     "@farmfe/js-plugin-dts": "workspace:^",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "farm": "workspace:*"
   },
   "scripts": {
     "build:esm": "farm build && farm build && node test.mjs",

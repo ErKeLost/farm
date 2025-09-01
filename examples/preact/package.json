@@ -16,11 +16,10 @@
     "preact": "^10.20.1"
   },
   "devDependencies": {
-    "@farmfe/cli": "workspace:*",
-    "@farmfe/core": "workspace:*",
     "@farmfe/plugin-react": "workspace:*",
     "@preact/preset-vite": "^2.8.1",
     "react-refresh": "^0.17.0",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.3",
+    "farm": "workspace:*"
   }
 }

@@ -6,27 +6,27 @@
 
 - 9a227ad: Chore: release v2 nightly
 - Updated dependencies [63908eb]
-  - @farmfe/core@2.0.0-nightly-20250827162746
+  - farm@2.0.0-nightly-20250827162746
 
 ## 4.0.0-nightly-20250729025629
 
 ### Patch Changes
 
 - Updated dependencies [b730530]
-  - @farmfe/core@2.0.0-nightly-20250729025629
+  - farm@2.0.0-nightly-20250729025629
 
 ## 4.0.0-nightly-20250411141103
 
 ### Patch Changes
 
-- @farmfe/core@2.0.0-nightly-20250411141103
+- farm@2.0.0-nightly-20250411141103
 
 ## 4.0.0-nightly-20250411100807
 
 ### Patch Changes
 
 - Updated dependencies [60f40f0]
-  - @farmfe/core@2.0.0-nightly-20250411100807
+  - farm@2.0.0-nightly-20250411100807
 
 ## 4.0.0-nightly-20250410022118
 
@@ -35,82 +35,82 @@
 - Updated dependencies [21ac2ac]
 - Updated dependencies [b8f7fc5]
 - Updated dependencies [ad09476]
-  - @farmfe/core@2.0.0-nightly-20250410022118
+  - farm@2.0.0-nightly-20250410022118
 
 ## 4.0.0-nightly-20241029121500
 
 ### Patch Changes
 
 - Updated dependencies [b327dd1]
-  - @farmfe/core@2.0.0-nightly-20241029121500
+  - farm@2.0.0-nightly-20241029121500
 
 ## 4.0.0-nightly-20241029095811
 
 ### Patch Changes
 
 - Updated dependencies [b3a7caf]
-  - @farmfe/core@2.0.0-nightly-20241029095811
+  - farm@2.0.0-nightly-20241029095811
 
 ## 4.0.0-nightly-20241024090954
 
 ### Patch Changes
 
 - Updated dependencies [f460eb1]
-  - @farmfe/core@2.0.0-nightly-20241024090954
+  - farm@2.0.0-nightly-20241024090954
 
 ## 4.0.0-nightly-20241024075304
 
 ### Patch Changes
 
-- @farmfe/core@2.0.0-nightly-20241024075304
+- farm@2.0.0-nightly-20241024075304
 
 ## 4.0.0-nightly-20241023101523
 
 ### Patch Changes
 
 - Updated dependencies [d7c5ffb]
-  - @farmfe/core@2.0.0-nightly-20241023101523
+  - farm@2.0.0-nightly-20241023101523
 
 ## 4.0.0-nightly-20241023020505
 
 ### Patch Changes
 
 - Updated dependencies [3651244]
-  - @farmfe/core@2.0.0-nightly-20241023020505
+  - farm@2.0.0-nightly-20241023020505
 
 ## 4.0.0-nightly-20241022143924
 
 ### Patch Changes
 
 - Updated dependencies [83838bd]
-  - @farmfe/core@2.0.0-nightly-20241022143924
+  - farm@2.0.0-nightly-20241022143924
 
 ## 4.0.0-nightly-20241022124925
 
 ### Patch Changes
 
-- @farmfe/core@2.0.0-nightly-20241022124925
+- farm@2.0.0-nightly-20241022124925
 
 ## 4.0.0-nightly-20241022041556
 
 ### Patch Changes
 
 - Updated dependencies [24347c9]
-  - @farmfe/core@2.0.0-nightly-20241022041556
+  - farm@2.0.0-nightly-20241022041556
 
 ## 4.0.0-nightly-20241022014521
 
 ### Patch Changes
 
 - Updated dependencies [a82a5b2]
-  - @farmfe/core@2.0.0-nightly-20241022014521
+  - farm@2.0.0-nightly-20241022014521
 
 ## 3.13.0
 
 ### Patch Changes
 
 - Updated dependencies [25f3d3f6]
-  - @farmfe/core@1.7.0
+  - farm@1.7.0
 
 ## 3.12.0
 
@@ -118,7 +118,7 @@
 
 - Updated dependencies [b235a919]
 - Updated dependencies [6b849123]
-  - @farmfe/core@1.6.0
+  - farm@1.6.0
 
 ## 3.11.0
 
@@ -128,14 +128,14 @@
 - Updated dependencies [e63b163a]
 - Updated dependencies [e63b163a]
 - Updated dependencies [e63b163a]
-  - @farmfe/core@1.5.0
+  - farm@1.5.0
 
 ## 3.10.0
 
 ### Patch Changes
 
 - Updated dependencies [7d86847c]
-  - @farmfe/core@1.4.0
+  - farm@1.4.0
 
 ## 3.9.0
 
@@ -148,7 +148,7 @@
 - Updated dependencies [385e5b25]
 - Updated dependencies [11081589]
 - Updated dependencies [89c40302]
-  - @farmfe/core@1.3.0
+  - farm@1.3.0
 
 ## 3.8.0
 
@@ -156,7 +156,7 @@
 
 - Updated dependencies [122ab6d0]
 - Updated dependencies [eb2eee75]
-  - @farmfe/core@1.2.0
+  - farm@1.2.0
 
 ## 3.7.0
 
@@ -167,14 +167,14 @@
 - Updated dependencies [3581ee5e]
 - Updated dependencies [86d17342]
 - Updated dependencies [4e8ebbcc]
-  - @farmfe/core@1.1.0
+  - farm@1.1.0
 
 ## 3.6.0
 
 ### Patch Changes
 
 - Updated dependencies [8f8366de]
-  - @farmfe/core@1.0.0
+  - farm@1.0.0
 
 ## 3.5.0
 
@@ -184,7 +184,7 @@
 
 ### Patch Changes
 
-- @farmfe/core@0.16.11
+- farm@0.16.11
 
 ## 3.4.0
 
@@ -193,7 +193,7 @@
 - Updated dependencies [992c0a5c]
 - Updated dependencies [116ffa94]
 - Updated dependencies [7fc2a650]
-  - @farmfe/core@0.16.0
+  - farm@0.16.0
 
 ## 3.3.0
 
@@ -210,7 +210,7 @@
 - Updated dependencies [24571102]
 - Updated dependencies [78c19574]
 - Updated dependencies [8846d063]
-  - @farmfe/core@0.15.0
+  - farm@0.15.0
 
 ## 3.2.0
 
@@ -224,7 +224,7 @@
 - Updated dependencies [c12156ff]
 - Updated dependencies [72bfe2af]
 - Updated dependencies [0a20271a]
-  - @farmfe/core@0.14.0
+  - farm@0.14.0
 
 ## 3.1.0
 
@@ -239,7 +239,7 @@
 - a569977: Update filters to support resolved paths with query
 - Updated dependencies [a569977]
 - Updated dependencies [a569977]
-  - @farmfe/core@0.13.19
+  - farm@0.13.19
 
 ## 3.0.0
 
@@ -247,7 +247,7 @@
 
 - Updated dependencies [f7b1b9d]
 - Updated dependencies [5be3aab]
-  - @farmfe/core@0.13.0
+  - farm@0.13.0
 
 ## 2.0.2
 
@@ -260,14 +260,14 @@
 ### Patch Changes
 
 - Updated dependencies [ad00276]
-  - @farmfe/core@0.12.0
+  - farm@0.12.0
 
 ## 2.0.0
 
 ### Patch Changes
 
 - Updated dependencies [56f235c]
-  - @farmfe/core@0.11.0
+  - farm@0.11.0
 
 ## 1.2.9
 
@@ -275,14 +275,14 @@
 
 - b70ce32: Fix that vue SFC does not remove previous css styles when HMR
 - Updated dependencies [b70ce32]
-  - @farmfe/core@0.10.5
+  - farm@0.10.5
 
 ## 1.2.8
 
 ### Patch Changes
 
 - Updated dependencies [d604b5e]
-  - @farmfe/core@0.10.0
+  - farm@0.10.0
 
 ## 1.2.7
 
@@ -290,7 +290,7 @@
 
 - 3073e19: Bump version for js plugins
 - Updated dependencies [3073e19]
-  - @farmfe/core@0.9.9
+  - farm@0.9.9
 
 ## 1.2.6
 
@@ -298,7 +298,7 @@
 
 - 9ec0179: fix: styles import in Vue SFC
 - Updated dependencies [de18942]
-  - @farmfe/core@0.9.7
+  - farm@0.9.7
 
 ## 1.2.5
 
@@ -306,14 +306,14 @@
 
 - c36c767: Build js plugins using Farm
 - Updated dependencies [c36c767]
-  - @farmfe/core@0.9.6
+  - farm@0.9.6
 
 ## 2.0.0
 
 ### Patch Changes
 
 - Updated dependencies [55c0d0e]
-  - @farmfe/core@0.9.0
+  - farm@0.9.0
 
 ## 1.2.3
 
@@ -321,7 +321,7 @@
 
 - ad90ff5: Support output.entryFilename and fix sass bugs
 - Updated dependencies [ad90ff5]
-  - @farmfe/core@0.8.10
+  - farm@0.8.10
 
 ## 1.2.2
 
@@ -329,7 +329,7 @@
 
 - 4d719e4: Bugfix
 - Updated dependencies [4d719e4]
-  - @farmfe/core@0.8.5
+  - farm@0.8.5
 
 ## 1.2.1
 
@@ -337,7 +337,7 @@
 
 - 3bb5808: Bump version as core changed
 - Updated dependencies [3bb5808]
-  - @farmfe/core@0.8.4
+  - farm@0.8.4
 
 ## 1.2.0
 
@@ -349,7 +349,7 @@
 ### Patch Changes
 
 - Updated dependencies [1148f68]
-  - @farmfe/core@0.8.2
+  - farm@0.8.2
 
 ## 1.1.1
 
@@ -357,7 +357,7 @@
 
 - 6f97c87: Change the dist's module system to ESM
 - Updated dependencies [6f97c87]
-  - @farmfe/core@0.8.1
+  - farm@0.8.1
 
 ## 1.1.0
 
@@ -368,7 +368,7 @@
 ### Patch Changes
 
 - Updated dependencies [e780747]
-  - @farmfe/core@0.8.0
+  - farm@0.8.0
 
 ## 1.0.1
 
@@ -382,7 +382,7 @@
 
 - Updated dependencies [a04008f]
 - Updated dependencies [7ff4d97]
-  - @farmfe/core@0.7.0
+  - farm@0.7.0
 
 ## 0.2.1
 
@@ -390,7 +390,7 @@
 
 - Updated dependencies [9838407]
 - Updated dependencies [cc94e33]
-  - @farmfe/core@0.6.0
+  - farm@0.6.0
 
 ## 0.2.0
 
@@ -404,7 +404,7 @@
 
 - 3dfc64f: 1. Fix hmr does not update lazy compiled module 2. Support sourcemap for Vue SFC
 - Updated dependencies [3dfc64f]
-  - @farmfe/core@0.5.3
+  - farm@0.5.3
 
 ## 0.1.0
 

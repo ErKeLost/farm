@@ -9,15 +9,14 @@
     "react-dom": "18"
   },
   "devDependencies": {
-    "@farmfe/cli": "workspace:*",
-    "@farmfe/core": "workspace:*",
     "@farmfe/js-plugin-postcss": "workspace:^",
     "@farmfe/plugin-react": "workspace:*",
     "@farmfe/plugin-sass": "workspace:*",
     "@types/react": "18",
     "@types/react-dom": "18",
     "postcss-pxtorem": "^6.0.0",
-    "react-refresh": "^0.14.0"
+    "react-refresh": "^0.14.0",
+    "farm": "workspace:*"
   },
   "scripts": {
     "start": "farm start",

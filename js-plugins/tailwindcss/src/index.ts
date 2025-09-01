@@ -12,7 +12,7 @@ import type {
   JsPlugin,
   Server,
   UserConfig
-} from '@farmfe/core';
+} from 'farm';
 
 // like https://github.com/tailwindlabs/tailwindcss/blob/next/packages/%40tailwindcss-vite/src/index.ts
 export default function tailwindcss(): JsPlugin[] {

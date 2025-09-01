@@ -16,9 +16,6 @@ const CWD = process.cwd();
 // Build the compiler binary
 const PKG_CORE = resolve(CWD, "./packages/core");
 
-// Build cli
-const PKG_CLI = resolve(CWD, "./packages/cli");
-
 const PKG_RUNTIME = resolve(CWD, "./packages/runtime");
 
 const PKG_RUNTIME_PLUGIN_HMR = resolve(CWD, "./packages/runtime-plugin-hmr");
@@ -92,7 +89,6 @@ export const buildExamples = async () => {
 export async function runTaskQueue() {
   // The sass plug-in uses protobuf, so you need to determine whether the user installs it or not.
   await installProtoBuf();
-  await runTask("Cli", buildCli);
   await runTask("Runtime", buildRuntime);
   await runTask("PluginTools", buildPluginTools);
   await runTask("Core", buildCore);
@@ -169,22 +165,14 @@ export const installLinuxProtobuf = async (spinner) => {
 
 // build core command
 export const buildCore = () =>
-  execa(DEFAULT_PACKAGE_MANAGER, ["build:rs"], {
+  execa(DEFAULT_PACKAGE_MANAGER, ["build"], {
     cwd: PKG_CORE,
     stdio: isVerbose ? "inherit" : "ignore",
-  })
-    .then(buildReplaceDirnamePlugin)
-    .then(buildCoreCjs);
+  }).then(buildReplaceDirnamePlugin);
 
 export const buildCoreCjs = () =>
   execa(DEFAULT_PACKAGE_MANAGER, ["build:cjs"], {
     cwd: PKG_CORE,
-  });
-
-// build cli command
-export const buildCli = () =>
-  execa(DEFAULT_PACKAGE_MANAGER, ["build"], {
-    cwd: PKG_CLI,
   });
 
 export const buildRuntime = async () => {
